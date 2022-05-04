@@ -6,17 +6,17 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/05/03 11:37:41 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/05/04 12:23:48 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 LIB_NAME = ft
 
-SOURCES = $(shell find . -type f -name "*.c")
+SOURCES = $(shell find ./src/ -type f -name "*.c")
 HEADER = libft.h
 
-OBJECTS = $(%.c,%.o,$(NAME))
-NAME = lib$(LiB_NAME).a
+OBJECTS = $(patsubst %.c,%.o,$(SOURCES))
+NAME = lib$(LIB_NAME).a
 
 CC = gcc -Wall -Wextra -Werror
 
@@ -38,5 +38,5 @@ $(NAME): $(OBJECTS)
 	ar -rcs $(NAME) $(OBJECTS)
 
 %.o: %.c $(HEADER)
-	$(CC) -c $< -o $@
+	$(CC) -I. -c $< -o $@
 

@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_str_len.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/04 12:24:12 by nmathieu         ###   ########.fr       */
+/*   Created: 2022/05/04 12:16:42 by nmathieu          #+#    #+#             */
+/*   Updated: 2022/05/04 12:18:02 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stddef.h>
+size_t	ft_str_len(const char *s)
+{
+	const char	*t;
 
-// Returns the length of the provided string (not including the terminating null
-// character.
-size_t		ft_str_len(const char *s);
-
-// Returns a pointer to the first character `c` within `s`. If the character
-// is not in `s`, `NULL` is returned.
-const char	*ft_str_find(const char *s, char c);
-
-#endif
+	t = s;
+	while (*t)
+		t++;
+	return (t - s);
+}
