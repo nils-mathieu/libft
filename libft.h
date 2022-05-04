@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/04 13:03:34 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/04 17:36:54 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,29 @@
 # include <stdint.h>
 
 // ========================================================================== //
+//                                Operations                                  //
+// ========================================================================== //
+
+// Tries to put the result of `a + b` into `result`. The function returns
+// whether overflow did not occur.
+bool		ft_uint32_add(uint32_t a, uint32_t b, uint32_t *result);
+
+// Tries to put the result of `a * b` into `result`. The function returns
+// whether overflow did not occur.
+bool		ft_uint32_mul(uint32_t a, uint32_t b, uint32_t *result);
+
+// ========================================================================== //
 //                                 Strings                                    //
 // ========================================================================== //
+
+// A string that knows its length.
+//
+// Note that the `data` pointer may or may not be null termiated.
+typedef struct s_str
+{
+	const char	*data;
+	size_t		len;
+}	t_str;
 
 // Returns the length of the provided string (not including the terminating null
 // character.
@@ -28,6 +49,22 @@ size_t		ft_str_len(const char *s);
 // Returns a pointer to the first character `c` within `s`. If the character
 // is not in `s`, `NULL` is returned.
 const char	*ft_str_find(const char *s, char c);
+
+// Converts the begining of the provided string into an `uint32_t`.
+//
+// On success, this function returns a pointer to the first character that
+// wasn't parsed. On failure, `NULL` is returned.
+//
+// This function saturates on overflow.
+const char	*ft_str_to_uint32_base(const char *s, t_str base, uint32_t *result);
+
+// Converts the begining of the provided string into an `uint32_t`.
+//
+// On success, this function returns a pointer to the first character that
+// wasn't parsed. On failure, `NULL` is returned.
+//
+// This function saturates on overflow.
+const char	*ft_str_to_uint32(const char *s, uint32_t *result);
 
 // ========================================================================== //
 //                                 Memory                                     //
