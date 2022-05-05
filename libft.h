@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/05 20:35:47 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/05 20:41:10 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ bool		ft_size_add(size_t a, size_t b, size_t *result);
 // Tries to put the result of `a * b` into `result`. The function returns
 // whether overflow did not occur.
 bool		ft_size_mul(size_t a, size_t b, size_t *result);
+
+// ========================================================================== //
+//                                   Math                                     //
+// ========================================================================== //
+
+int			ft_uint_abs(int i);
 
 // ========================================================================== //
 //                                 Strings                                    //
