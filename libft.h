@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/05 20:41:10 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/05 21:30:45 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stddef.h>
 # include <stdbool.h>
 # include <stdint.h>
+# include <limits.h>
 
 // ========================================================================== //
 //                                Operations                                  //
@@ -41,6 +42,9 @@ bool		ft_size_mul(size_t a, size_t b, size_t *result);
 //                                   Math                                     //
 // ========================================================================== //
 
+// Returns the absolute value of `i`.
+//
+// If `i` is `UINT_MIN`, it is itself returned.
 int			ft_uint_abs(int i);
 
 // ========================================================================== //
@@ -118,12 +122,42 @@ const void	*ft_mem_find2(const void *p, uint8_t c0, uint8_t c1, size_t max);
 // Returns a pointer to the first byte `b0` or `b1` within `p`.
 const void	*ft_mem_find2_inf(const void *p, uint8_t b0, uint8_t b1);
 
+// Copies `n` bytes from `src` to `dst`. Areas must not overlap.
+void		ft_mem_copy(void *dst, const void *src, size_t n);
+
+// Fills `dst` with the provided `byte`.
+void		ft_mem_set(void *dst, uint8_t byte, size_t n);
+
 // ========================================================================== //
 //                               Input/Output                                 //
 // ========================================================================== //
 
+// A partially uninitialized buffer.
+typedef struct s_buffer
+{
+	void	*data;
+	size_t	init;
+	size_t	cap;
+}	t_buffer;
+
 // Writes `data` to the provided file descriptor. Returns whether no error
 // occured.
 bool		ft_write_all(int fd, const void *data, size_t to_write);
+
+// Writes bytes into `buf`, writting everything to the provided file descriptor
+// once it is full.
+//
+// Returns whether the operation is successful.
+bool		ft_write_buffered(int fd, t_buffer *buf, const void *p, size_t n);
+
+// Writes `n` times the bytes pointed by `data` to the provided file
+// descriptor.
+//
+// Returns whether the operation was successful.
+bool		ft_write_repeat(int fd, const void *data, size_t len, size_t n);
+
+// Writes the provided byte `n` times. Returns whether the operation is
+// successful.
+bool		ft_write_repeat_one(int fd, uint8_t b, size_t n);
 
 #endif
