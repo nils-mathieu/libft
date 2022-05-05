@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/05 11:55:09 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/05 12:41:02 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include <stddef.h>
 # include <stdbool.h>
 # include <stdint.h>
+
+# define BASE_10 ((t_str){"0123456789", 10});
+# define BASE_LOWER_16 ((t_str){"0123456789abcdef", 16});
+# define BASE_UPPER_16 ((t_str){"0123456789ABCDEF", 16});
 
 // ========================================================================== //
 //                                Operations                                  //
@@ -80,19 +84,15 @@ const char	*ft_str_to_uint32(const char *s, uint32_t *result);
 
 // Writes `i` in the provided base. The number is written from the end of the
 // `buf_end` pointer. A pointer to the first character is returned.
-char		*ft_uint32_to_str_base(uint32_t i, t_str base, char *buf_end);
-
-// Writes `i` in decimal. The number is written from the end of the `buf_end`
-// pointer. A pointer to the first character is returned.
-char		*ft_uint32_to_str(uint32_t i, char *buf_end);
+char		*ft_uint32_to_str(uint32_t i, t_str base, char *buf_end);
 
 // Writes `i` in the provided base. The number is written from the end of the
 // `buf_end` pointer. A pointer to the first character is returned.
-char		*ft_size_to_str_base(size_t i, t_str base, char *buf_end);
+char		*ft_size_to_str(size_t i, t_str base, char *buf_end);
 
-// Writes `i` in decimal. The number is written from the end of the provided
+// Writes `i` in the provided base. The number is written from the end of the
 // `buf_end` pointer. A pointer to the first character is returned.
-char		*ft_size_to_str(size_t i, char *buf_end);
+char		*ft_uint_to_str(unsigned int i, t_str base, char *buf_end);
 
 // ========================================================================== //
 //                                 Memory                                     //

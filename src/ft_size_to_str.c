@@ -5,14 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/05 11:51:44 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/05 11:52:10 by nmathieu         ###   ########.fr       */
+/*   Created: 2022/05/05 11:51:16 by nmathieu          #+#    #+#             */
+/*   Updated: 2022/05/05 12:39:08 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_size_to_str(size_t i, char *buf_end)
+char	*ft_size_to_str(size_t i, t_str base, char *buf_end)
 {
-	return (ft_size_to_str_base(i, (t_str){"0123456789", 10}, buf_end));
+	while (i)
+	{
+		buf_end--;
+		*buf_end = base.data[i % base.len];
+		i /= base.len;
+	}
+	return (buf_end);
 }
