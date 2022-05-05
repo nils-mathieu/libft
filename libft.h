@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/05 20:19:06 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/05 20:35:47 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,10 @@ char		*ft_size_to_str(size_t i, t_str base, char *buf_end);
 // `buf_end` pointer. A pointer to the first character is returned.
 char		*ft_uint_to_str(unsigned int i, t_str base, char *buf_end);
 
+// Returns the number of bytes required to print `i` in a base of the provided
+// length.
+size_t		ft_uint_len(unsigned int i, size_t base_len);
+
 // ========================================================================== //
 //                                 Memory                                     //
 // ========================================================================== //
@@ -114,6 +118,6 @@ const void	*ft_mem_find2_inf(const void *p, uint8_t b0, uint8_t b1);
 
 // Writes `data` to the provided file descriptor. Returns whether no error
 // occured.
-bool	ft_write_all(int fd, const void *data, size_t to_write);
+bool		ft_write_all(int fd, const void *data, size_t to_write);
 
 #endif
