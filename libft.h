@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/05 21:30:45 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/05 22:50:07 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,6 @@ char		*ft_size_to_str(size_t i, t_str base, char *buf_end);
 // Writes `i` in the provided base. The number is written from the end of the
 // `buf_end` pointer. A pointer to the first character is returned.
 char		*ft_uint_to_str(unsigned int i, t_str base, char *buf_end);
-
-// Returns the number of bytes required to print `i` in a base of the provided
-// length.
-size_t		ft_uint_len(unsigned int i, size_t base_len);
 
 // ========================================================================== //
 //                                 Memory                                     //
