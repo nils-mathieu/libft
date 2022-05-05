@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/05 12:41:02 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/05 13:39:57 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <stdbool.h>
 # include <stdint.h>
 
-# define BASE_10 ((t_str){"0123456789", 10});
-# define BASE_LOWER_16 ((t_str){"0123456789abcdef", 16});
-# define BASE_UPPER_16 ((t_str){"0123456789ABCDEF", 16});
+# define BASE_10 ((t_str){"0123456789", 10})
+# define BASE_LOWER_16 ((t_str){"0123456789abcdef", 16})
+# define BASE_UPPER_16 ((t_str){"0123456789ABCDEF", 16})
 
 // ========================================================================== //
 //                                Operations                                  //
