@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/05 14:07:54 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/05 20:19:06 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,13 @@ const void	*ft_mem_find2(const void *p, uint8_t c0, uint8_t c1, size_t max);
 
 // Returns a pointer to the first byte `b0` or `b1` within `p`.
 const void	*ft_mem_find2_inf(const void *p, uint8_t b0, uint8_t b1);
+
+// ========================================================================== //
+//                               Input/Output                                 //
+// ========================================================================== //
+
+// Writes `data` to the provided file descriptor. Returns whether no error
+// occured.
+bool	ft_write_all(int fd, const void *data, size_t to_write);
 
 #endif
