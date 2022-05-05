@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mem_find2_inf.c                                 :+:      :+:    :+:   */
+/*   ft_uint32_to_str_base.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/04 13:01:45 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/04 18:11:42 by nmathieu         ###   ########.fr       */
+/*   Created: 2022/05/04 21:21:28 by nmathieu          #+#    #+#             */
+/*   Updated: 2022/05/05 11:28:53 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-const void	*ft_mem_find2_inf(const void *p, uint8_t b0, uint8_t b1)
+char	*ft_uint32_to_str_base(uint32_t i, t_str base, char *buf_end)
 {
-	while (true)
+	while (i)
 	{
-		if (*(uint8_t *)p == b0 || *(uint8_t *)p == b1)
-			return (p);
-		p++;
+		buf_end--;
+		*buf_end = base.data[i % base.len];
+		i /= base.len;
 	}
+	return (buf_end);
 }

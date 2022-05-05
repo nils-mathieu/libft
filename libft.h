@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/04 17:36:54 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/05 11:30:23 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,10 @@ size_t		ft_str_len(const char *s);
 // is not in `s`, `NULL` is returned.
 const char	*ft_str_find(const char *s, char c);
 
+// ========================================================================== //
+//                                   Format                                   //
+// ========================================================================== //
+
 // Converts the begining of the provided string into an `uint32_t`.
 //
 // On success, this function returns a pointer to the first character that
@@ -65,6 +69,14 @@ const char	*ft_str_to_uint32_base(const char *s, t_str base, uint32_t *result);
 //
 // This function saturates on overflow.
 const char	*ft_str_to_uint32(const char *s, uint32_t *result);
+
+// Writes `i` in the provided base. The number is written from the end of the
+// `buf_end` pointer. A pointer to the first character is returned.
+char		*ft_uint32_to_str_base(uint32_t i, t_str base, char *buf_end);
+
+// Writes `i` in decimal. The number is written from the end of the `buf_end`
+// pointer. A pointer to the first character is returned.
+char		*ft_uint32_to_str(uint32_t i, char *buf_end);
 
 // ========================================================================== //
 //                                 Memory                                     //
@@ -82,6 +94,6 @@ const void	*ft_mem_find_inf(const void *p, uint8_t b);
 const void	*ft_mem_find2(const void *p, uint8_t c0, uint8_t c1, size_t max);
 
 // Returns a pointer to the first byte `b0` or `b1` within `p`.
-const void	*ft_mem_find2_inf(const void *p, uint8_t b);
+const void	*ft_mem_find2_inf(const void *p, uint8_t b0, uint8_t b1);
 
 #endif
