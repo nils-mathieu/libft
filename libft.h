@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/05 11:30:23 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/05 11:55:09 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,14 @@ bool		ft_uint32_add(uint32_t a, uint32_t b, uint32_t *result);
 // Tries to put the result of `a * b` into `result`. The function returns
 // whether overflow did not occur.
 bool		ft_uint32_mul(uint32_t a, uint32_t b, uint32_t *result);
+
+// Tries to put the result of `a + b` into `result`. The function returns
+// whether overflow did not occur.
+bool		ft_size_add(size_t a, size_t b, size_t *result);
+
+// Tries to put the result of `a * b` into `result`. The function returns
+// whether overflow did not occur.
+bool		ft_size_mul(size_t a, size_t b, size_t *result);
 
 // ========================================================================== //
 //                                 Strings                                    //
@@ -77,6 +85,14 @@ char		*ft_uint32_to_str_base(uint32_t i, t_str base, char *buf_end);
 // Writes `i` in decimal. The number is written from the end of the `buf_end`
 // pointer. A pointer to the first character is returned.
 char		*ft_uint32_to_str(uint32_t i, char *buf_end);
+
+// Writes `i` in the provided base. The number is written from the end of the
+// `buf_end` pointer. A pointer to the first character is returned.
+char		*ft_size_to_str_base(size_t i, t_str base, char *buf_end);
+
+// Writes `i` in decimal. The number is written from the end of the provided
+// `buf_end` pointer. A pointer to the first character is returned.
+char		*ft_size_to_str(size_t i, char *buf_end);
 
 // ========================================================================== //
 //                                 Memory                                     //
