@@ -6,11 +6,12 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 21:24:05 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/05 21:29:51 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/05 21:34:51 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 #define BUF_SIZE 64
 
