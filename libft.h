@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/06 10:49:49 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/06 11:42:38 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ int			ft_uint_abs(int i);
 
 // Returns the max of `a` and `b`.
 size_t		ft_size_max(size_t a, size_t b);
+
+// Returns the min of `a` and `b`.
+size_t		ft_size_min(size_t a, size_t b);
 
 // ========================================================================== //
 //                                 Strings                                    //
