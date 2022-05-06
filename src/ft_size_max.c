@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_write_all.c                                     :+:      :+:    :+:   */
+/*   ft_size_max.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/05 20:19:14 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/06 09:47:11 by nmathieu         ###   ########.fr       */
+/*   Created: 2022/05/06 10:49:54 by nmathieu          #+#    #+#             */
+/*   Updated: 2022/05/06 10:50:30 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-bool	ft_write_all(int fd, const void *data, size_t len)
+size_t	ft_size_max(size_t a, size_t b)
 {
-	ssize_t	count;
-
-	while (len)
-	{
-		count = write(fd, data, len);
-		if (count < 0)
-			return (false);
-		len -= count;
-		data += count;
-	}
-	return (true);
+	if (a < b)
+		return (b);
+	else
+		return (a);
 }

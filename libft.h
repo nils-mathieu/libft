@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/05 22:50:07 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/06 10:49:49 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ bool		ft_size_mul(size_t a, size_t b, size_t *result);
 //
 // If `i` is `UINT_MIN`, it is itself returned.
 int			ft_uint_abs(int i);
+
+// Returns the max of `a` and `b`.
+size_t		ft_size_max(size_t a, size_t b);
 
 // ========================================================================== //
 //                                 Strings                                    //
