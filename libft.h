@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/06 11:42:38 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/06 11:45:06 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,13 @@ typedef struct s_str
 // Returns the length of the provided string (not including the terminating null
 // character.
 size_t		ft_str_len(const char *s);
+
+// Returns the length of the provided string (not including the terminating null
+// character).
+//
+// Only up to `n` characters are checked. The return value of this function is
+// min(len(s), n).
+size_t		ft_str_nlen(const char *s, size_t n);
 
 // Returns a pointer to the first character `c` within `s`. If the character
 // is not in `s`, `NULL` is returned.
