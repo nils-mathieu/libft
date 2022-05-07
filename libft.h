@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/06 11:45:06 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/07 09:56:44 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,17 +88,8 @@ const char	*ft_str_find(const char *s, char c);
 // Converts the begining of the provided string into an `uint32_t`.
 //
 // On success, this function returns a pointer to the first character that
-// wasn't parsed. On failure, `NULL` is returned.
-//
-// This function saturates on overflow.
-const char	*ft_str_to_uint32_base(const char *s, t_str base, uint32_t *result);
-
-// Converts the begining of the provided string into an `uint32_t`.
-//
-// On success, this function returns a pointer to the first character that
-// wasn't parsed. On failure, `NULL` is returned.
-//
-// This function saturates on overflow.
+// wasn't parsed. On overflow, `NULL` is returned and `result` is left
+// unspecified.
 const char	*ft_str_to_uint32(const char *s, uint32_t *result);
 
 // Writes `i` in the provided base. The number is written from the end of the
