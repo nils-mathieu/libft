@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/07 09:56:44 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/07 10:21:42 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,5 +159,12 @@ bool		ft_write_repeat(int fd, const void *data, size_t len, size_t n);
 // Writes the provided byte `n` times. Returns whether the operation is
 // successful.
 bool		ft_write_repeat_one(int fd, uint8_t b, size_t n);
+
+// ========================================================================== //
+//                                   System                                   //
+// ========================================================================== //
+
+/// Allocates `count * size` bytes. This function fails on overflow.
+void		*ft_alloc_array(size_t count, size_t size);
 
 #endif
