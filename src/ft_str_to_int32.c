@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 11:07:12 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/07 11:18:55 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/07 11:22:42 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ const char	*ft_str_to_int32(const char *s, int32_t *result)
 		return (NULL);
 	if (neg)
 		*result = -*result;
-	return (s);
+	return (ret);
 }

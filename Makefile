@@ -6,7 +6,7 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/05/04 12:23:48 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/05/07 11:22:55 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,11 +25,11 @@ all: $(NAME)
 
 .PHONY: clean
 clean:
-	rm -f $(OBJECTS)
+	rm -vf $(OBJECTS)
 
 .PHONY: fclean
 fclean:
-	rm -f $(OBJECTS) $(NAME)
+	rm -vf $(OBJECTS) $(NAME)
 
 .PHONY: re
 re: fclean all
