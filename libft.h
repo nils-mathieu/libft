@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/07 11:11:04 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/07 17:29:42 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,6 @@
 # include <stdbool.h>
 # include <stdint.h>
 # include <limits.h>
-
-// ========================================================================== //
-//                                Operations                                  //
-// ========================================================================== //
-
-// Tries to put the result of `a + b` into `result`. The function returns
-// whether overflow did not occur.
-bool		ft_uint32_add(uint32_t a, uint32_t b, uint32_t *result);
-
-// Tries to put the result of `a * b` into `result`. The function returns
-// whether overflow did not occur.
-bool		ft_uint32_mul(uint32_t a, uint32_t b, uint32_t *result);
-
-// Tries to put the result of `a + b` into `result`. The function returns
-// whether overflow did not occur.
-bool		ft_size_add(size_t a, size_t b, size_t *result);
-
-// Tries to put the result of `a * b` into `result`. The function returns
-// whether overflow did not occur.
-bool		ft_size_mul(size_t a, size_t b, size_t *result);
 
 // ========================================================================== //
 //                                   Math                                     //
