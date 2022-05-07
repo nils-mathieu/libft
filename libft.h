@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/07 10:21:42 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/07 11:11:04 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,16 @@ const char	*ft_str_find(const char *s, char c);
 // wasn't parsed. On overflow, `NULL` is returned and `result` is left
 // unspecified.
 const char	*ft_str_to_uint32(const char *s, uint32_t *result);
+
+// Converts the begining of the provided string into an `int32_t`.
+//
+// This function accepts a leading `+` or `-` to indicate the sign of the
+// output number.
+//
+// On success, this function returns a pointer to the first character that
+// wasn't parsed. On overflow, `NULL` is returned and `result` is left
+// unspecified.
+const char	*ft_str_to_int32(const char *s, int32_t *result);
 
 // Writes `i` in the provided base. The number is written from the end of the
 // `buf_end` pointer. A pointer to the first character is returned.
