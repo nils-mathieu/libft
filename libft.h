@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/07 17:29:42 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/07 19:01:30 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,12 @@ size_t		ft_str_len(const char *s);
 // Only up to `n` characters are checked. The return value of this function is
 // min(len(s), n).
 size_t		ft_str_nlen(const char *s, size_t n);
+
+/// Compares `s` and `n`.
+//
+// If `s` comes befores `n`, a negative value is returned. If it comes after, a
+// positive value is returned. If they are equal, `0` is returned.
+int			ft_str_cmp(const char *s, size_t n);
 
 // Returns a pointer to the first character `c` within `s`. If the character
 // is not in `s`, `NULL` is returned.
