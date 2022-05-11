@@ -6,7 +6,7 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/05/11 19:17:38 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/05/12 01:00:18 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,8 +68,8 @@ re: fclean all
 $(NAME): $(OBJ_FILES)
 	ar -rcs $(NAME) $(OBJ_FILES)
 
-objs:
-	mkdir objs
+$(OBJS_DIR):
+	mkdir $(OBJS_DIR)
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c $(HEADER) | objs
 	$(CC) -I. -c $< -o $@
