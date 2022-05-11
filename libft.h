@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/07 19:10:50 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/11 11:56:08 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 
 // Returns the absolute value of `i`.
 //
-// If `i` is `UINT_MIN`, it is itself returned.
-int			ft_uint_abs(int i);
+// If `i` is `INT_MIN`, it is itself returned.
+int			ft_int_abs(int i);
 
 // Returns the max of `a` and `b`.
 size_t		ft_size_max(size_t a, size_t b);
