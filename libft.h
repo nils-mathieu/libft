@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/11 18:44:31 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/12 01:18:26 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,44 @@ bool		ft_write_repeat(int fd, const void *data, size_t len, size_t n);
 // Writes the provided byte `n` times. Returns whether the operation is
 // successful.
 bool		ft_write_repeat_one(int fd, uint8_t b, size_t n);
+
+// The result type of most read operations.
+//
+// `FT_RDRSLT_CONTINUE` - The operation is a success but there is still more
+// data to be flushed.
+//
+// `FT_RDRSLT_DONE` - There is no more data to flush.
+//
+// `FT_RDRSLT_PARSE_ERROR` - An error occured whilst parsing.
+//
+// `FT_RDRSLT_READ_ERROR` - An error occured whislt reading.
+typedef enum e_rdresult
+{
+	FT_RDRSLT_CONTINUE,
+	FT_RDRSLT_DONE,
+	FT_RDRSLT_PARSE_ERROR,
+	FT_RDRSLT_READ_ERROR,
+}	t_rdresult;
+
+// A buffered reader.
+typedef struct s_reader
+{
+	int			fd;
+	t_buffer	buf;
+	size_t		cur;
+}	t_reader;
+
+// Internal functions:
+// t_rdresult	__ft_reader_refill(t_reader *reader);
+
+// Reads a single byte from the provided file descriptor.
+t_rdresult	ft_read_byte(t_reader *r, uint8_t *byte);
+
+// Reads a single decimal `uint32_t` from the provided file descriptor.
+t_rdresult	ft_read_str_uint32(t_reader *r, uint32_t *result);
+
+// Reads a single decimal `int32_t` from the provided file descriptor.
+t_rdresult	ft_read_str_int32(t_reader *r, int32_t *result);
 
 // ========================================================================== //
 //                                Allocations                                 //

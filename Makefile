@@ -6,7 +6,7 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/05/12 01:00:18 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/05/12 01:46:38 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,10 @@ SRCS =								\
 	ft_write_buffered				\
 	ft_write_repeat					\
 	ft_write_repeat_one				\
+	__ft_reader_refill				\
+	ft_read_byte					\
+	ft_read_str_uint32				\
+	ft_read_str_int32				\
 									\
 	ft_alloc_array
 
