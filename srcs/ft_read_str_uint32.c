@@ -6,13 +6,11 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 01:27:12 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/12 10:59:31 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/13 00:38:56 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-sta
 
 t_rdresult	ft_read_str_uint32(t_reader *r, uint32_t *result)
 {
