@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/12 01:18:26 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/12 11:05:10 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,6 +193,13 @@ t_rdresult	ft_read_str_uint32(t_reader *r, uint32_t *result);
 
 // Reads a single decimal `int32_t` from the provided file descriptor.
 t_rdresult	ft_read_str_int32(t_reader *r, int32_t *result);
+
+// Reads any number of `c` characters from the provided reader.
+t_rdresult	ft_read_skip(t_reader *r, char c);
+
+// Reads any number of `c` characters from the provided reader and writes that
+// number to `count`.
+t_rdresult	ft_read_count(t_reader *r, char c, size_t *count);
 
 // ========================================================================== //
 //                                Allocations                                 //
