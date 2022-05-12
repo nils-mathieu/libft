@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 17:34:52 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/07 18:17:58 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/12 10:57:22 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 const char	*ft_str_to_uint32(const char *s, uint32_t *result)
 {
+	if (*s < '0' || '9' < *s)
+		return (NULL);
 	*result = 0;
 	while ('0' <= *s && *s <= '9')
 	{
