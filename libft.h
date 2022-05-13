@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/13 08:26:56 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/13 08:52:58 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,11 +212,7 @@ void		*ft_alloc_array(size_t count, size_t size);
 // 								     Debug                                    //
 // ========================================================================== //
 
-# ifdef DEBUG
-
 // Makes an assertion. Aborts the process if it is false.
 void		ft_assert(bool	assertion, const char *msg);
-
-# endif
 
 #endif
