@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/13 15:10:12 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/13 15:39:34 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,20 +158,17 @@ bool		ft_write_repeat_one(int fd, uint8_t b, size_t n);
 
 // The result type of most read operations.
 //
-// `FT_RDRSLT_CONTINUE` - The operation is a success but there is still more
+// `FT_RDRES_INCOMPLETE` - The operation is a success but there is still more
 // data to be flushed.
 //
 // `FT_RDRSLT_DONE` - There is no more data to flush.
 //
-// `FT_RDRSLT_PARSE_ERROR` - An error occured whilst parsing.
-//
 // `FT_RDRSLT_READ_ERROR` - An error occured whislt reading.
 typedef enum e_read_result
 {
-	FT_RDRES_CONTINUE,
-	FT_RDRES_DONE,
-	FT_RDRES_PARSE_ERROR,
-	FT_RDRES_READ_ERROR,
+	FT_RDRES_INCOMPLETE = 1,
+	FT_RDRES_DONE = 0,
+	FT_RDRES_ERROR = -1,
 }	t_rdres;
 
 // A buffered reader.
@@ -182,24 +179,11 @@ typedef struct s_reader
 	size_t		cur;
 }	t_reader;
 
-// Internal functions:
-// t_rdresult	__ft_reader_refill(t_reader *reader);
+// Refills the internal buffer of a `reader` regardless of its current state.
+t_rdres		ft_reader_refill(t_reader *reader);
 
-// Reads a single byte from the provided file descriptor.
-t_rdres		ft_read_byte(t_reader *r, uint8_t *byte);
-
-// Reads a single decimal `uint32_t` from the provided file descriptor.
-t_rdres		ft_read_str_uint32(t_reader *r, uint32_t *result);
-
-// Reads a single decimal `int32_t` from the provided file descriptor.
-t_rdres		ft_read_str_int32(t_reader *r, int32_t *result);
-
-// Reads any number of `c` characters from the provided reader.
-t_rdres		ft_read_skip(t_reader *r, char c);
-
-// Reads any number of `c` characters from the provided reader and writes that
-// number to `count`.
-t_rdres		ft_read_count(t_reader *r, char c, size_t *count);
+// Reads a single byte from the provided `reader_t` instance.
+t_rdres		ft_read_byte(t_reader *reader, uint8_t *byte);
 
 // ========================================================================== //
 //                                Allocations                                 //
