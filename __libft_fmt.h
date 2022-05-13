@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:13:41 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/13 20:41:32 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/13 23:26:28 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_format_handler
 bool	__ft_fmt_parse_format(t_writer w, const char **f, va_list args);
 
 bool	__ft_fmt_handle_u32(t_writer w, va_list args);
+bool	__ft_fmt_handle_i32(t_writer w, va_list args);
 bool	__ft_fmt_handle_char(t_writer w, va_list args);
 bool	__ft_fmt_handle_debug_char(t_writer w, va_list args);
 
