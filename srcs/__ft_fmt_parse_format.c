@@ -6,18 +6,20 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:22:08 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/13 20:24:54 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/13 20:41:54 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "__libft_fmt.h"
 
-#define FORMAT_HANDLER_COUNT 1
+#define FORMAT_HANDLER_COUNT 3
 
 static inline t_fmt_handler	*fmt_handler(void)
 {
 	static t_fmt_handler	handlers[FORMAT_HANDLER_COUNT] = {
 		(t_fmt_handler){(t_str){"u32", 3}, __ft_fmt_handle_u32},
+		(t_fmt_handler){(t_str){"c", 1}, __ft_fmt_handle_char},
+		(t_fmt_handler){(t_str){"c?", 2}, __ft_fmt_handle_debug_char},
 	};
 
 	return (handlers);
