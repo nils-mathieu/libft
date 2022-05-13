@@ -6,7 +6,7 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/05/12 01:46:38 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/05/13 08:32:55 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,9 @@ SRCS =								\
 	ft_read_str_uint32				\
 	ft_read_str_int32				\
 									\
-	ft_alloc_array
+	ft_alloc_array					\
+									\
+	ft_assert
 
 SRCS_DIR = srcs
 OBJS_DIR = objs
@@ -53,7 +55,13 @@ HEADER = libft.h
 SRC_FILES = $(patsubst %,$(SRCS_DIR)/%.c,$(SRCS))
 OBJ_FILES = $(patsubst %,$(OBJS_DIR)/%.o,$(SRCS))
 
-CC = cc -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
+
+ifdef DEBUG
+	CFLAGS += -g3 -D DEBUG
+else
+	CFLAGS += -O3
+endif
 
 .PHONY: all
 all: $(NAME)
@@ -76,4 +84,4 @@ $(OBJS_DIR):
 	mkdir $(OBJS_DIR)
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c $(HEADER) | objs
-	$(CC) -I. -c $< -o $@
+	cc $(CFLAGS) -I. -c $< -o $@
