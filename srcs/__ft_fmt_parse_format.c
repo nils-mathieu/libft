@@ -6,14 +6,14 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:22:08 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/13 23:55:15 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/13 23:57:41 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "__libft_fmt.h"
 #include <stdio.h>
 
-#define FORMAT_HANDLER_COUNT 3
+#define FORMAT_HANDLER_COUNT 4
 
 static inline t_fmt_handler	*fmt_handler(void)
 {

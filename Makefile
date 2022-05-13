@@ -6,7 +6,7 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/05/13 23:24:52 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/05/13 23:59:29 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ SRCS =									\
 										\
 	__ft_fmt_parse_format.c				\
 	__ft_fmt_handle_u32.c				\
+	__ft_fmt_handle_i32.c				\
 	__ft_fmt_handle_char.c				\
 	ft_fmt_write.c						\
 	ft_fmt.c							\
