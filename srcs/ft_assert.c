@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 08:28:35 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/13 08:53:03 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/13 10:47:45 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	ft_assert(bool condition, const char *msg)
 	if (condition)
 		return ;
 	ft_write_all(STDERR_FILENO, msg, ft_str_len(msg));
-	exit(1);
+	ft_write_all(STDERR_FILENO, "\n", 1);
+	abort();
 }
 
 #else
