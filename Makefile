@@ -6,7 +6,7 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/05/13 17:51:43 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/05/13 20:21:34 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,13 @@ SRCS =									\
 	ft_str_nlen.c						\
 	ft_str_cmp.c						\
 	ft_str_find.c						\
+	ft_str_starts_with.c				\
 										\
 	ft_str_to_uint32.c					\
 	ft_str_to_int32.c					\
 	ft_size_to_str.c					\
 	ft_uint_to_str.c					\
+	ft_uint32_to_str.c					\
 										\
 	ft_mem_find.c						\
 	ft_mem_find_inf.c					\
@@ -40,6 +42,11 @@ SRCS =									\
 	ft_write_repeat_one.c				\
 	ft_reader_refill.c					\
 	ft_read_byte.c						\
+										\
+	__ft_fmt_parse_format.c				\
+	__ft_fmt_handle_u32.c				\
+	ft_fmt_write.c						\
+	ft_fmt.c							\
 										\
 	ft_alloc_array.c					\
 										\
