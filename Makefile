@@ -6,7 +6,7 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/05/16 16:44:24 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/05/16 17:25:22 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,7 @@ CFLAGS := -Wall -Wextra -Werror
 ifdef DEBUG
 	CFLAGS += -g3 -D DEBUG
 else
-	CFLAGS += -O3 -flto
+	CFLAGS += -O3
 endif
 
 .PHONY: all
