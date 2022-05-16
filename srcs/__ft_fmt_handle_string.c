@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 18:10:19 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/16 18:15:26 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/16 18:20:54 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ bool	__ft_fmt_handle_string(t_writer w, va_list args)
 	const char	*s;
 
 	s = va_arg(args, const char *);
-	return (w.write(w.self, s, ft_str_len(s)));
+	return (w.write(w.self, (void *)s, ft_str_len(s)));
 }
 
 static bool	debug_char(t_writer w, char c)
@@ -45,6 +45,7 @@ bool	__ft_fmt_handle_debug_string(t_writer w, va_list args)
 {
 	const char	*s;
 
+	s = va_arg(args, const char *);
 	while (*s)
 	{
 		if (!debug_char(w, *s))
