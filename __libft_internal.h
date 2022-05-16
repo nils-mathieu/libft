@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   __libft_fmt.h                                      :+:      :+:    :+:   */
+/*   __libft_internal.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:13:41 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/13 23:26:28 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/16 16:33:46 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __LIBFT_FMT_H
-# define __LIBFT_FMT_H
+#ifndef __LIBFT_INTERNAL_H
+# define __LIBFT_INTERNAL_H
 
 # include "libft.h"
 

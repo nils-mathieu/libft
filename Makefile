@@ -6,13 +6,13 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/05/13 23:59:29 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/05/16 16:44:24 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME := libft.a
 
-SRCS =									\
+SRCS :=									\
 	ft_int_abs.c						\
 	ft_size_max.c						\
 	ft_size_min.c						\
@@ -54,20 +54,20 @@ SRCS =									\
 										\
 	ft_assert.c
 
-SRCS_DIR = srcs
-OBJS_DIR = objs
+SRCS_DIR := srcs
+OBJS_DIR := objs
 
-HEADER = libft.h
+HEADER := libft.h __libft_internal.h
 
-SRC_FILES = $(addprefix $(SRCS_DIR)/,$(SRCS))
-OBJ_FILES = $(patsubst %.c,$(OBJS_DIR)/%.o,$(SRCS))
+SRC_FILES := $(addprefix $(SRCS_DIR)/,$(SRCS))
+OBJ_FILES := $(patsubst %.c,$(OBJS_DIR)/%.o,$(SRCS))
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS := -Wall -Wextra -Werror
 
 ifdef DEBUG
 	CFLAGS += -g3 -D DEBUG
 else
-	CFLAGS += -O3
+	CFLAGS += -O3 -flto
 endif
 
 .PHONY: all
