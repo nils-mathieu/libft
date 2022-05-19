@@ -1,4 +1,3 @@
 /libft.a
 /.vscode
-/gen/gen_*.c
-*.o
+/inter
