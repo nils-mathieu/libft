@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:13:41 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/16 19:10:10 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/20 00:20:48 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 typedef bool	(*t_handle_format_fn)(t_writer w, va_list args);
 
+// Describes a format handler. `id` is used to identify which function pointer
+// will be called to handle the next argument.
 typedef struct s_format_handler
 {
 	t_str				id;
@@ -24,6 +26,9 @@ typedef struct s_format_handler
 }	t_fmt_handler;
 
 bool	__ft_fmt_parse_format(t_writer w, const char **f, va_list args);
+
+// The following function are responsible for handling type formatting
+// using the `ft_fmt_*` functions.
 
 bool	__ft_fmt_handle_u32(t_writer w, va_list args);
 bool	__ft_fmt_handle_i32(t_writer w, va_list args);
