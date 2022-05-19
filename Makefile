@@ -6,7 +6,7 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/05/19 18:57:47 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/05/19 19:08:48 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,16 +23,6 @@ SRCS :=									\
 	ft_str_find.c						\
 	ft_str_rfind.c						\
 	ft_str_starts_with.c				\
-										\
-	gen_ft_str_to_int8.c				\
-	gen_ft_str_to_int16.c				\
-	gen_ft_str_to_int32.c				\
-	gen_ft_str_to_int64.c				\
-	gen_ft_str_to_int.c					\
-	gen_ft_str_to_long.c				\
-	gen_ft_str_to_llong.c				\
-	gen_ft_str_to_short.c				\
-	gen_ft_str_to_char.c				\
 										\
 	ft_size_to_str.c					\
 	ft_uint_to_str.c					\
@@ -67,14 +57,25 @@ SRCS :=									\
 										\
 	ft_assert.c
 
+GEN :=									\
+	gen_ft_str_to_int8.c				\
+	gen_ft_str_to_int16.c				\
+	gen_ft_str_to_int32.c				\
+	gen_ft_str_to_int64.c				\
+	gen_ft_str_to_int.c					\
+	gen_ft_str_to_long.c				\
+	gen_ft_str_to_llong.c				\
+	gen_ft_str_to_short.c				\
+	gen_ft_str_to_char.c
+
 SRCS_DIR := srcs
 OBJS_DIR := objs
-TPLT_DIR := gen
+GEN_DIR := gen
 
 HEADER := libft.h __libft_internal.h
 
-SRC_FILES := $(addprefix $(SRCS_DIR)/,$(SRCS))
-OBJ_FILES := $(patsubst %.c,$(OBJS_DIR)/%.o,$(SRCS))
+OBJ_FILES := $(patsubst %.c,$(OBJS_DIR)/%.o,$(SRCS) $(GEN))
+GEN_FILES := $(addprefix $(GEN_DIR)/,$(GEN))
 
 CFLAGS := -Wall -Wextra -Werror
 
@@ -89,11 +90,12 @@ all: $(NAME)
 
 .PHONY: clean
 clean:
-	rm -vf $(OBJ_FILES)
+	@rm -vf $(OBJ_FILES)
+	@rm -vf $(GEN_FILES)
 
 .PHONY: fclean
 fclean: clean
-	rm -vf $(NAME)
+	@rm -vf $(NAME)
 
 .PHONY: re
 re: fclean all
@@ -102,20 +104,24 @@ $(NAME): $(OBJ_FILES)
 	ar -rcs $(NAME) $(OBJ_FILES)
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c $(HEADER)
-	mkdir -p $(dir $@)
+	@mkdir -p $(dir $@)
 	clang $(CFLAGS) -I. -c $< -o $@
 
-$(SRCS_DIR)/gen_ft_str_to_int8.c: $(TPLT_DIR)/ft_str_to_INT.gen
-	sed									\
-		-e "s/{INT}/int8/g"				\
-		-e "s/{INT_T}/int8_t/g"			\
-		-e "s/{UINT}/uint8/g"			\
-		-e "s/{UINT_T}/uint8_t/g"		\
-		-e "s/{INT_MIN}/INT8_MIN/g"		\
-		-e "s/{UINT_MAX}/UINT8_MAX/g"	\
-		${TPLT_DIR}/ft_str_to_INT.gen > $@
+$(OBJS_DIR)/%.o: $(GEN_DIR)/%.c $(HEADER)
+	@mkdir -p $(dir $@)
+	clang $(CFLAGS) -I. -c $< -o $@
 
-$(SRCS_DIR)/gen_ft_str_to_int16.c: $(TPLT_DIR)/ft_str_to_INT.gen
+$(GEN_DIR)/gen_ft_str_to_int8.c: $(GEN_DIR)/ft_str_to_INT.gen
+	sed										\
+		-e "s/{INT}/int8/g"					\
+		-e "s/{INT_T}/int8_t/g"				\
+		-e "s/{UINT}/uint8/g"				\
+		-e "s/{UINT_T}/uint8_t/g"			\
+		-e "s/{INT_MIN}/INT8_MIN/g"			\
+		-e "s/{UINT_MAX}/UINT8_MAX/g"		\
+		${GEN_DIR}/ft_str_to_INT.gen > $@
+
+$(GEN_DIR)/gen_ft_str_to_int16.c: $(GEN_DIR)/ft_str_to_INT.gen
 	sed										\
 		-e "s/{INT}/int16/g"				\
 		-e "s/{INT_T}/int16_t/g"			\
@@ -123,9 +129,9 @@ $(SRCS_DIR)/gen_ft_str_to_int16.c: $(TPLT_DIR)/ft_str_to_INT.gen
 		-e "s/{UINT_T}/uint16_t/g"			\
 		-e "s/{INT_MIN}/INT16_MIN/g"		\
 		-e "s/{UINT_MAX}/UINT16_MAX/g"		\
-		${TPLT_DIR}/ft_str_to_INT.gen > $@
+		${GEN_DIR}/ft_str_to_INT.gen > $@
 
-$(SRCS_DIR)/gen_ft_str_to_int32.c: $(TPLT_DIR)/ft_str_to_INT.gen
+$(GEN_DIR)/gen_ft_str_to_int32.c: $(GEN_DIR)/ft_str_to_INT.gen
 	sed										\
 		-e "s/{INT}/int32/g"				\
 		-e "s/{INT_T}/int32_t/g"			\
@@ -133,9 +139,9 @@ $(SRCS_DIR)/gen_ft_str_to_int32.c: $(TPLT_DIR)/ft_str_to_INT.gen
 		-e "s/{UINT_T}/uint32_t/g"			\
 		-e "s/{INT_MIN}/INT32_MIN/g"		\
 		-e "s/{UINT_MAX}/UINT32_MAX/g"		\
-		${TPLT_DIR}/ft_str_to_INT.gen > $@
+		${GEN_DIR}/ft_str_to_INT.gen > $@
 
-$(SRCS_DIR)/gen_ft_str_to_int64.c: $(TPLT_DIR)/ft_str_to_INT.gen
+$(GEN_DIR)/gen_ft_str_to_int64.c: $(GEN_DIR)/ft_str_to_INT.gen
 	sed										\
 		-e "s/{INT}/int64/g"				\
 		-e "s/{INT_T}/int64_t/g"			\
@@ -143,9 +149,9 @@ $(SRCS_DIR)/gen_ft_str_to_int64.c: $(TPLT_DIR)/ft_str_to_INT.gen
 		-e "s/{UINT_T}/uint64_t/g"			\
 		-e "s/{INT_MIN}/INT64_MIN/g"		\
 		-e "s/{UINT_MAX}/UINT64_MAX/g"		\
-		${TPLT_DIR}/ft_str_to_INT.gen > $@
+		${GEN_DIR}/ft_str_to_INT.gen > $@
 
-$(SRCS_DIR)/gen_ft_str_to_char.c: $(TPLT_DIR)/ft_str_to_INT.gen
+$(GEN_DIR)/gen_ft_str_to_char.c: $(GEN_DIR)/ft_str_to_INT.gen
 	sed										\
 		-e "s/{INT}/char/g"					\
 		-e "s/{INT_T}/char/g"				\
@@ -153,9 +159,9 @@ $(SRCS_DIR)/gen_ft_str_to_char.c: $(TPLT_DIR)/ft_str_to_INT.gen
 		-e "s/{UINT_T}/unsigned char/g"		\
 		-e "s/{INT_MIN}/CHAR_MIN/g"			\
 		-e "s/{UINT_MAX}/UCHAR_MAX/g"		\
-		${TPLT_DIR}/ft_str_to_INT.gen > $@
+		${GEN_DIR}/ft_str_to_INT.gen > $@
 
-$(SRCS_DIR)/gen_ft_str_to_short.c: $(TPLT_DIR)/ft_str_to_INT.gen
+$(GEN_DIR)/gen_ft_str_to_short.c: $(GEN_DIR)/ft_str_to_INT.gen
 	sed										\
 		-e "s/{INT}/short/g"				\
 		-e "s/{INT_T}/short/g"				\
@@ -163,9 +169,9 @@ $(SRCS_DIR)/gen_ft_str_to_short.c: $(TPLT_DIR)/ft_str_to_INT.gen
 		-e "s/{UINT_T}/unsigned short/g"	\
 		-e "s/{INT_MIN}/SHRT_MIN/g"			\
 		-e "s/{UINT_MAX}/USHRT_MAX/g"		\
-		${TPLT_DIR}/ft_str_to_INT.gen > $@
+		${GEN_DIR}/ft_str_to_INT.gen > $@
 
-$(SRCS_DIR)/gen_ft_str_to_int.c: $(TPLT_DIR)/ft_str_to_INT.gen
+$(GEN_DIR)/gen_ft_str_to_int.c: $(GEN_DIR)/ft_str_to_INT.gen
 	sed										\
 		-e "s/{INT}/int/g"					\
 		-e "s/{INT_T}/int/g"				\
@@ -173,9 +179,9 @@ $(SRCS_DIR)/gen_ft_str_to_int.c: $(TPLT_DIR)/ft_str_to_INT.gen
 		-e "s/{UINT_T}/unsigned int/g"		\
 		-e "s/{INT_MIN}/INT_MIN/g"			\
 		-e "s/{UINT_MAX}/UINT_MAX/g"		\
-		${TPLT_DIR}/ft_str_to_INT.gen > $@
+		${GEN_DIR}/ft_str_to_INT.gen > $@
 
-$(SRCS_DIR)/gen_ft_str_to_long.c: $(TPLT_DIR)/ft_str_to_INT.gen
+$(GEN_DIR)/gen_ft_str_to_long.c: $(GEN_DIR)/ft_str_to_INT.gen
 	sed										\
 		-e "s/{INT}/long/g"					\
 		-e "s/{INT_T}/long/g"				\
@@ -183,9 +189,9 @@ $(SRCS_DIR)/gen_ft_str_to_long.c: $(TPLT_DIR)/ft_str_to_INT.gen
 		-e "s/{UINT_T}/unsigned long/g"		\
 		-e "s/{INT_MIN}/LONG_MIN/g"			\
 		-e "s/{UINT_MAX}/ULONG_MAX/g"		\
-		${TPLT_DIR}/ft_str_to_INT.gen > $@
+		${GEN_DIR}/ft_str_to_INT.gen > $@
 
-$(SRCS_DIR)/gen_ft_str_to_llong.c: $(TPLT_DIR)/ft_str_to_INT.gen
+$(GEN_DIR)/gen_ft_str_to_llong.c: $(GEN_DIR)/ft_str_to_INT.gen
 	sed											\
 		-e "s/{INT}/llong/g"					\
 		-e "s/{INT_T}/long long/g"				\
@@ -193,4 +199,4 @@ $(SRCS_DIR)/gen_ft_str_to_llong.c: $(TPLT_DIR)/ft_str_to_INT.gen
 		-e "s/{UINT_T}/unsigned long long/g"	\
 		-e "s/{INT_MIN}/LLONG_MIN/g"			\
 		-e "s/{UINT_MAX}/ULLONG_MAX/g"			\
-		${TPLT_DIR}/ft_str_to_INT.gen > $@
+		${GEN_DIR}/ft_str_to_INT.gen > $@

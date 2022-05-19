@@ -1,3 +1,4 @@
-libft.a
+/libft.a
+/.vscode
+/gen/gen_*.c
 *.o
-.vscode
