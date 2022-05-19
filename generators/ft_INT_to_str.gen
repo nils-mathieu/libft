@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uint32_to_str.c                                 :+:      :+:    :+:   */
+/*   ft_INT_to_str.gen                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/04 21:21:28 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/14 00:18:55 by nmathieu         ###   ########.fr       */
+/*   Created: 2022/05/20 00:25:42 by nmathieu          #+#    #+#             */
+/*   Updated: 2022/05/20 00:39:47 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_uint32_to_str(uint32_t i, t_str base, char *buf_end)
+char	*ft_{UINT}_to_str({UINT_T} i, t_str base, char *buf_end)
 {
 	if (i == 0)
 		return (*(--buf_end) = base.data[0], buf_end);

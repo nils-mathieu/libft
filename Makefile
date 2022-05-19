@@ -6,7 +6,7 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/05/19 19:18:16 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/05/20 00:38:26 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,6 @@ SRCS :=									\
 	ft_str_find.c						\
 	ft_str_rfind.c						\
 	ft_str_starts_with.c				\
-										\
-	ft_size_to_str.c					\
-	ft_uint_to_str.c					\
-	ft_uint32_to_str.c					\
 										\
 	ft_mem_find.c						\
 	ft_mem_find_inf.c					\
@@ -66,7 +62,17 @@ GEN :=									\
 	gen_ft_str_to_long.c				\
 	gen_ft_str_to_llong.c				\
 	gen_ft_str_to_short.c				\
-	gen_ft_str_to_char.c
+	gen_ft_str_to_char.c				\
+										\
+	gen_ft_uint8_to_str.c				\
+	gen_ft_uint16_to_str.c				\
+	gen_ft_uint32_to_str.c				\
+	gen_ft_uint64_to_str.c				\
+	gen_ft_uchar_to_str.c				\
+	gen_ft_ushort_to_str.c				\
+	gen_ft_uint_to_str.c				\
+	gen_ft_ulong_to_str.c				\
+	gen_ft_ullong_to_str.c				\
 
 GENERATORS_DIR := generators
 SRCS_DIR := srcs
@@ -219,3 +225,75 @@ $(GEN_DIR)/gen_ft_str_to_llong.c: $(GENERATORS_DIR)/ft_str_to_INT.gen
 		-e "s/{INT_MIN}/LLONG_MIN/g"			\
 		-e "s/{UINT_MAX}/ULLONG_MAX/g"			\
 		${GENERATORS_DIR}/ft_str_to_INT.gen > $@
+
+$(GEN_DIR)/gen_ft_uint8_to_str.c: $(GENERATORS_DIR)/ft_INT_to_str.gen
+	@echo "generating $@"
+	@mkdir -vp $(dir $@)
+	@sed										\
+		-e "s/{UINT}/uint8/g"					\
+		-e "s/{UINT_T}/uint8_t/g"				\
+		${GENERATORS_DIR}/ft_INT_to_str.gen > $@
+
+$(GEN_DIR)/gen_ft_uint16_to_str.c: $(GENERATORS_DIR)/ft_INT_to_str.gen
+	@echo "generating $@"
+	@mkdir -vp $(dir $@)
+	@sed										\
+		-e "s/{UINT}/uint16/g"					\
+		-e "s/{UINT_T}/uint16_t/g"				\
+		${GENERATORS_DIR}/ft_INT_to_str.gen > $@
+
+$(GEN_DIR)/gen_ft_uint32_to_str.c: $(GENERATORS_DIR)/ft_INT_to_str.gen
+	@echo "generating $@"
+	@mkdir -vp $(dir $@)
+	@sed										\
+		-e "s/{UINT}/uint32/g"					\
+		-e "s/{UINT_T}/uint32_t/g"				\
+		${GENERATORS_DIR}/ft_INT_to_str.gen > $@
+
+$(GEN_DIR)/gen_ft_uint64_to_str.c: $(GENERATORS_DIR)/ft_INT_to_str.gen
+	@echo "generating $@"
+	@mkdir -vp $(dir $@)
+	@sed										\
+		-e "s/{UINT}/uint64/g"					\
+		-e "s/{UINT_T}/uint64_t/g"				\
+		${GENERATORS_DIR}/ft_INT_to_str.gen > $@
+
+$(GEN_DIR)/gen_ft_uchar_to_str.c: $(GENERATORS_DIR)/ft_INT_to_str.gen
+	@echo "generating $@"
+	@mkdir -vp $(dir $@)
+	@sed										\
+		-e "s/{UINT}/uchar/g"					\
+		-e "s/{UINT_T}/unsigned char/g"			\
+		${GENERATORS_DIR}/ft_INT_to_str.gen > $@
+
+$(GEN_DIR)/gen_ft_ushort_to_str.c: $(GENERATORS_DIR)/ft_INT_to_str.gen
+	@echo "generating $@"
+	@mkdir -vp $(dir $@)
+	@sed										\
+		-e "s/{UINT}/ushort/g"					\
+		-e "s/{UINT_T}/unsigned short/g"		\
+		${GENERATORS_DIR}/ft_INT_to_str.gen > $@
+
+$(GEN_DIR)/gen_ft_uint_to_str.c: $(GENERATORS_DIR)/ft_INT_to_str.gen
+	@echo "generating $@"
+	@mkdir -vp $(dir $@)
+	@sed										\
+		-e "s/{UINT}/uint/g"					\
+		-e "s/{UINT_T}/unsigned int/g"			\
+		${GENERATORS_DIR}/ft_INT_to_str.gen > $@
+
+$(GEN_DIR)/gen_ft_ulong_to_str.c: $(GENERATORS_DIR)/ft_INT_to_str.gen
+	@echo "generating $@"
+	@mkdir -vp $(dir $@)
+	@sed										\
+		-e "s/{UINT}/ulong/g"					\
+		-e "s/{UINT_T}/unsigned long/g"			\
+		${GENERATORS_DIR}/ft_INT_to_str.gen > $@
+
+$(GEN_DIR)/gen_ft_ullong_to_str.c: $(GENERATORS_DIR)/ft_INT_to_str.gen
+	@echo "generating $@"
+	@mkdir -vp $(dir $@)
+	@sed										\
+		-e "s/{UINT}/ullong/g"					\
+		-e "s/{UINT_T}/unsigned long long/g"	\
+		${GENERATORS_DIR}/ft_INT_to_str.gen > $@

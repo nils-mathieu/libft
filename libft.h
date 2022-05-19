@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/20 00:17:04 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/20 00:41:09 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,17 +106,26 @@ const char	*ft_str_to_ulong(const char *s, unsigned long *result);
 const char	*ft_str_to_llong(const char *s, long long *result);
 const char	*ft_str_to_ullong(const char *s, unsigned long long *result);
 
-// Writes `i` in the provided base. The number is written from the end of the
-// `buf_end` pointer. A pointer to the first character is returned.
-char		*ft_uint32_to_str(uint32_t i, t_str base, char *buf_end);
+// The following function will all have the same behaviour:
+//
+// They convert an integer into a collection of characters. Characters are
+// written from the `buf_end` pointer in reverse (not included, so the first
+// character is actually written to `buf_end - 1`).
+//
+// A pointer to the first character of the generated text is returned. Note that
+// no null-terminating character is added.
+//
+// The number is written in the given base.
 
-// Writes `i` in the provided base. The number is written from the end of the
-// `buf_end` pointer. A pointer to the first character is returned.
-char		*ft_size_to_str(size_t i, t_str base, char *buf_end);
-
-// Writes `i` in the provided base. The number is written from the end of the
-// `buf_end` pointer. A pointer to the first character is returned.
-char		*ft_uint_to_str(unsigned int i, t_str base, char *buf_end);
+char		*ft_uint8_to_str(uint8_t nb, t_str base, char *buf_end);
+char		*ft_uint16_to_str(uint16_t nb, t_str base, char *buf_end);
+char		*ft_uint32_to_str(uint32_t nb, t_str base, char *buf_end);
+char		*ft_uint64_to_str(uint64_t nb, t_str base, char *buf_end);
+char		*ft_uchar_to_str(unsigned char nb, t_str base, char *buf_end);
+char		*ft_ushort_to_str(unsigned short nb, t_str base, char *buf_end);
+char		*ft_uint_to_str(unsigned int nb, t_str base, char *buf_end);
+char		*ft_ulong_to_str(unsigned long nb, t_str base, char *buf_end);
+char		*ft_ullong_to_str(unsigned long long nb, t_str base, char *buf_end);
 
 // ========================================================================== //
 //                                 Memory                                     //
