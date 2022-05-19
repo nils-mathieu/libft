@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/18 22:10:31 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/19 18:59:48 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,10 @@ int			ft_str_cmp(const char *a, const char *b);
 // Returns a pointer to the first character `c` within `s`. If the character
 // is not in `s`, `NULL` is returned.
 const char	*ft_str_find(const char *s, char c);
+
+// Returns a pointer to the first character `c`, starting from the end of `s`.
+// If the character isn't found, `NULL` is returned.
+const char	*ft_str_rfind(const char *s, char c);
 
 // Determines whether `needle` can be found at the start of `s`.
 bool		ft_str_starts_with(const char *s, const char *needle);

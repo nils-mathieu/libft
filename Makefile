@@ -6,7 +6,7 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/05/18 22:06:01 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/05/19 18:57:47 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS :=									\
 	ft_str_nlen.c						\
 	ft_str_cmp.c						\
 	ft_str_find.c						\
+	ft_str_rfind.c						\
 	ft_str_starts_with.c				\
 										\
 	gen_ft_str_to_int8.c				\
