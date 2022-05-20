@@ -1,0 +1,53 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   __ft_fmt_handle_INT.gen                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/20 12:09:43 by nmathieu          #+#    #+#             */
+/*   Updated: 2022/05/20 13:59:49 by nmathieu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+#include "__libft_internal.h"
+
+#define BUF_SIZE {MAX_LEN}
+#define BUF_SIZE_S {SMAX_LEN}
+
+bool	__ft_fmt_handle_{UINT}(t_writer w, va_list args)
+{
+	char	buf[BUF_SIZE];
+	char	*start;
+
+	start = ft_{UINT}_to_str(
+			({UINT_T})va_arg(args, {VA_UINT}),
+			(t_str){"0123456789", 10}, buf + BUF_SIZE);
+	return (w.write(w.self, start, BUF_SIZE - (start - buf)));
+}
+
+inline static bool	inner(t_writer w, {INT_T} i)
+{
+	char	buf[BUF_SIZE_S];
+	char	*start;
+	bool	neg;
+
+	if (i == {INT_MIN})
+		return (w.write(w.self, "{INT_MIN_STR}", BUF_SIZE_S));
+	neg = false;
+	if (i < 0)
+	{
+		i = -i;
+		neg = true;
+	}
+	start = ft_{UINT}_to_str(i, (t_str){"0123456789", 10}, buf + BUF_SIZE_S);
+	if (neg)
+		*(--start) = '-';
+	return (w.write(w.self, start, BUF_SIZE_S - (start - buf)));
+}
+
+bool	__ft_fmt_handle_{INT}(t_writer w, va_list args)
+{
+	return (inner(w, ({INT_T})va_arg(args, {VA_INT})));
+}
