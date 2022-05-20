@@ -6,24 +6,39 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:22:08 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/16 19:10:43 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/20 12:27:25 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "__libft_internal.h"
 #include <stdio.h>
 
-#define FORMAT_HANDLER_COUNT 8
+#define FORMAT_HANDLER_COUNT 23
 
 static inline t_fmt_handler	*fmt_handler(void)
 {
 	static t_fmt_handler	handlers[FORMAT_HANDLER_COUNT] = {
-		(t_fmt_handler){(t_str){"u32", 3}, __ft_fmt_handle_u32},
-		(t_fmt_handler){(t_str){"i32", 3}, __ft_fmt_handle_i32},
-		(t_fmt_handler){(t_str){"i", 1}, __ft_fmt_handle_int},
+		(t_fmt_handler){(t_str){"ullong", 6}, __ft_fmt_handle_ullong},
+		(t_fmt_handler){(t_str){"ushort", 6}, __ft_fmt_handle_ushort},
+		(t_fmt_handler){(t_str){"sbyte", 5}, __ft_fmt_handle_sbyte},
+		(t_fmt_handler){(t_str){"short", 5}, __ft_fmt_handle_short},
+		(t_fmt_handler){(t_str){"llong", 5}, __ft_fmt_handle_llong},
+		(t_fmt_handler){(t_str){"ulong", 5}, __ft_fmt_handle_ulong},
+		(t_fmt_handler){(t_str){"long", 4}, __ft_fmt_handle_long},
+		(t_fmt_handler){(t_str){"byte", 4}, __ft_fmt_handle_byte},
+		(t_fmt_handler){(t_str){"uint", 4}, __ft_fmt_handle_uint},
+		(t_fmt_handler){(t_str){"u16", 3}, __ft_fmt_handle_uint16},
+		(t_fmt_handler){(t_str){"i16", 3}, __ft_fmt_handle_int16},
+		(t_fmt_handler){(t_str){"u32", 3}, __ft_fmt_handle_uint32},
+		(t_fmt_handler){(t_str){"i32", 3}, __ft_fmt_handle_int32},
+		(t_fmt_handler){(t_str){"u64", 3}, __ft_fmt_handle_uint64},
+		(t_fmt_handler){(t_str){"i64", 3}, __ft_fmt_handle_int64},
+		(t_fmt_handler){(t_str){"int", 3}, __ft_fmt_handle_int},
+		(t_fmt_handler){(t_str){"i8", 2}, __ft_fmt_handle_int8},
+		(t_fmt_handler){(t_str){"u8", 2}, __ft_fmt_handle_uint8},
 		(t_fmt_handler){(t_str){"s?", 2}, __ft_fmt_handle_debug_string},
-		(t_fmt_handler){(t_str){"s", 1}, __ft_fmt_handle_string},
 		(t_fmt_handler){(t_str){"c?", 2}, __ft_fmt_handle_debug_char},
+		(t_fmt_handler){(t_str){"s", 1}, __ft_fmt_handle_string},
 		(t_fmt_handler){(t_str){"c", 1}, __ft_fmt_handle_char},
 		(t_fmt_handler){(t_str){"b", 1}, __ft_fmt_handle_bool},
 	};
