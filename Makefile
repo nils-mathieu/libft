@@ -6,7 +6,7 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/05/20 13:53:38 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/05/20 14:21:10 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ SRCS :=									\
 	ft_read_byte.c						\
 										\
 	__ft_fmt_parse_format.c				\
-	__ft_fmt_handle_char.c				\
+	__ft_fmt_handle_print_char.c		\
 	__ft_fmt_handle_string.c			\
 	__ft_fmt_handle_bool.c				\
 	ft_fmt_write.c						\

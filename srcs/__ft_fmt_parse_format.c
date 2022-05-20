@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:22:08 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/20 14:01:02 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/20 14:21:18 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 static t_fmt_handler	g_handlers[FORMAT_HANDLER_COUNT] = {
 	(t_fmt_handler){(t_str){"ullong", 6}, __ft_fmt_handle_ullong},
 	(t_fmt_handler){(t_str){"ushort", 6}, __ft_fmt_handle_ushort},
-	(t_fmt_handler){(t_str){"sbyte", 5}, __ft_fmt_handle_sbyte},
+	(t_fmt_handler){(t_str){"sbyte", 5}, __ft_fmt_handle_char},
 	(t_fmt_handler){(t_str){"short", 5}, __ft_fmt_handle_short},
 	(t_fmt_handler){(t_str){"llong", 5}, __ft_fmt_handle_llong},
 	(t_fmt_handler){(t_str){"ulong", 5}, __ft_fmt_handle_ulong},
 	(t_fmt_handler){(t_str){"long", 4}, __ft_fmt_handle_long},
-	(t_fmt_handler){(t_str){"byte", 4}, __ft_fmt_handle_byte},
+	(t_fmt_handler){(t_str){"byte", 4}, __ft_fmt_handle_uchar},
 	(t_fmt_handler){(t_str){"uint", 4}, __ft_fmt_handle_uint},
 	(t_fmt_handler){(t_str){"u16", 3}, __ft_fmt_handle_uint16},
 	(t_fmt_handler){(t_str){"i16", 3}, __ft_fmt_handle_int16},
@@ -37,7 +37,7 @@ static t_fmt_handler	g_handlers[FORMAT_HANDLER_COUNT] = {
 	(t_fmt_handler){(t_str){"s?", 2}, __ft_fmt_handle_debug_string},
 	(t_fmt_handler){(t_str){"c?", 2}, __ft_fmt_handle_debug_char},
 	(t_fmt_handler){(t_str){"s", 1}, __ft_fmt_handle_string},
-	(t_fmt_handler){(t_str){"c", 1}, __ft_fmt_handle_char},
+	(t_fmt_handler){(t_str){"c", 1}, __ft_fmt_handle_print_char},
 	(t_fmt_handler){(t_str){"b", 1}, __ft_fmt_handle_bool},
 };
 
