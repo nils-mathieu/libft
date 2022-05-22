@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_size_min.c                                      :+:      :+:    :+:   */
+/*   ft_INT_abs.gen                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/06 11:42:44 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/06 11:43:28 by nmathieu         ###   ########.fr       */
+/*   Created: 2022/05/22 08:33:55 by nmathieu          #+#    #+#             */
+/*   Updated: 2022/05/22 08:54:19 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_size_min(size_t a, size_t b)
+{INT_T}	ft_{INT}_abs({INT_T} a)
 {
-	if (a < b)
-		return (a);
+	if (a < 0)
+		return (-a);
 	else
-		return (b);
+		return (a);
 }

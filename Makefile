@@ -6,16 +6,14 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/05/20 18:21:25 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/05/22 08:53:05 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := libft.a
 
 define SRCS :=
-	ft_int_abs.c
-	ft_size_max.c
-	ft_size_min.c
+	ft_size_minmax.c
 
 	ft_str_len.c
 	ft_str_nlen.c
@@ -82,6 +80,26 @@ define GEN :=
 	__ft_fmt_handle_int.c
 	__ft_fmt_handle_long.c
 	__ft_fmt_handle_llong.c
+
+	ft_int8_abs.c
+	ft_int16_abs.c
+	ft_int32_abs.c
+	ft_int64_abs.c
+	ft_char_abs.c
+	ft_short_abs.c
+	ft_int_abs.c
+	ft_long_abs.c
+	ft_llong_abs.c
+	
+	ft_int8_minmax.c
+	ft_int16_minmax.c
+	ft_int32_minmax.c
+	ft_int64_minmax.c
+	ft_char_minmax.c
+	ft_short_minmax.c
+	ft_int_minmax.c
+	ft_long_minmax.c
+	ft_llong_minmax.c
 endef
 
 GENERATORS_DIR := generators
@@ -280,6 +298,20 @@ $(foreach i,int8 int16 int32 int64 char short int long llong, $(eval	\
 
 $(foreach i,int8 int16 int32 int64 char short int long llong, $(eval	\
 	$(GEN_DIR)/__ft_fmt_handle_$(i).c: $(GENERATORS_DIR)/__ft_fmt_handle_INT.gen ;\
+		@ echo "generating $$@"										   ;\
+		mkdir -vp $$(dir $$@)										   ;\
+		sed $$(TPLT_$(i)) $$< > $$@										\
+))
+
+$(foreach i,int8 int16 int32 int64 char short int long llong, $(eval	\
+	$(GEN_DIR)/ft_$(i)_abs.c: $(GENERATORS_DIR)/ft_INT_abs.gen		   ;\
+		@ echo "generating $$@"										   ;\
+		mkdir -vp $$(dir $$@)										   ;\
+		sed $$(TPLT_$(i)) $$< > $$@										\
+))
+
+$(foreach i,int8 int16 int32 int64 char short int long llong, $(eval	\
+	$(GEN_DIR)/ft_$(i)_minmax.c: $(GENERATORS_DIR)/ft_INT_minmax.gen   ;\
 		@ echo "generating $$@"										   ;\
 		mkdir -vp $$(dir $$@)										   ;\
 		sed $$(TPLT_$(i)) $$< > $$@										\

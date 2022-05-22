@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/20 00:41:09 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/22 08:57:33 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,62 @@
 //                                   Math                                     //
 // ========================================================================== //
 
-// Returns the absolute value of `i`.
-//
-// If `i` is `INT_MIN`, it is itself returned.
-int			ft_int_abs(int i);
+typedef unsigned char		t_uchar;
+typedef unsigned short		t_ushort;
+typedef unsigned int		t_uint;
+typedef unsigned long		t_ulong;
+typedef long long			t_llong;
+typedef unsigned long long	t_ullong;
 
-// Returns the max of `a` and `b`.
-size_t		ft_size_max(size_t a, size_t b);
+int8_t		ft_int8_min(int8_t a, int8_t b);
+int16_t		ft_int16_min(int16_t a, int16_t b);
+int32_t		ft_int32_min(int32_t a, int32_t b);
+int64_t		ft_int64_min(int64_t a, int64_t b);
+char		ft_char_min(char a, char b);
+short		ft_short_min(short a, short b);
+int			ft_int_min(int a, int b);
+long		ft_long_min(long a, long b);
+t_llong		ft_llong_min(t_llong a, t_llong b);
 
-// Returns the min of `a` and `b`.
-size_t		ft_size_min(size_t a, size_t b);
+int8_t		ft_int8_max(int8_t a, int8_t b);
+int16_t		ft_int16_max(int16_t a, int16_t b);
+int32_t		ft_int32_max(int32_t a, int32_t b);
+int64_t		ft_int64_max(int64_t a, int64_t b);
+char		ft_char_max(char a, char b);
+short		ft_short_max(short a, short b);
+int			ft_int_max(int a, int b);
+long		ft_long_max(long a, long b);
+t_llong		ft_llong_max(t_llong a, t_llong b);
+
+uint8_t		ft_uint8_max(uint8_t a, uint8_t b);
+uint16_t	ft_uint16_max(uint16_t a, uint16_t b);
+uint32_t	ft_uint32_max(uint32_t a, uint32_t b);
+uint64_t	ft_uint64_max(uint64_t a, uint64_t b);
+t_uchar		ft_uchar_max(t_uchar a, t_uchar b);
+t_ushort	ft_ushort_max(t_ushort a, t_ushort b);
+t_uint		ft_uint_max(t_uint a, t_uint b);
+t_ulong		ft_ulong_max(t_ulong a, t_ulong b);
+t_ullong	ft_ullong_max(t_ullong a, t_ullong b);
+
+uint8_t		ft_uint8_min(uint8_t a, uint8_t b);
+uint16_t	ft_uint16_min(uint16_t a, uint16_t b);
+uint32_t	ft_uint32_min(uint32_t a, uint32_t b);
+uint64_t	ft_uint64_min(uint64_t a, uint64_t b);
+t_uchar		ft_uchar_min(t_uchar a, t_uchar b);
+t_ushort	ft_ushort_min(t_ushort a, t_ushort b);
+t_uint		ft_uint_min(t_uint a, t_uint b);
+t_ulong		ft_ulong_min(t_ulong a, t_ulong b);
+t_ullong	ft_ullong_min(t_ullong a, t_ullong b);
+
+int8_t		ft_int8_abs(int8_t a);
+int16_t		ft_int16_abs(int16_t a);
+int32_t		ft_int32_abs(int32_t a);
+int64_t		ft_int64_abs(int64_t a);
+char		ft_char_abs(char a);
+short		ft_short_abs(short a);
+int			ft_int_abs(int a);
+long		ft_long_abs(long a);
+t_llong		ft_llong_abs(t_llong a);
 
 // ========================================================================== //
 //                                 Strings                                    //
@@ -218,7 +264,7 @@ t_rdres		ft_read_byte(t_reader *reader, uint8_t *byte);
 
 // A function that may be used to write the first `count` bytes referenced
 // by `to_write`.
-typedef bool	(*t_writer_fn)(void *self, void *to_write, size_t count);
+typedef bool				(*t_writer_fn)(void *s, void *w, size_t l);
 
 // Describes a way to write data somewhere.
 typedef struct s_writer
