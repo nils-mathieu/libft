@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/26 18:25:41 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/26 18:36:35 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -319,7 +319,15 @@ void		ft_unwind_panic(const char *msg, ...);
 //                                Allocations                                 //
 // ========================================================================== //
 
-/// Allocates `count * size` bytes. This function fails on overflow.
+// Allocates `count` bytes.
+//
+// If the allocation fails, the function panics and unwinds the stack.
+void		*ft_alloc(size_t count);
+
+// Allocates `count * size` bytes.
+//
+// On overflow, or if the allocation fails, the function panics and unwinds
+// the stack.
 void		*ft_alloc_array(size_t count, size_t size);
 
 // ========================================================================== //
