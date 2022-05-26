@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 18:04:45 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/26 18:27:16 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/26 18:31:05 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,10 @@ void	ft_unwind_to(size_t to)
 	{
 		g_stack.len--;
 		(*g_stack.buf[g_stack.len].destructor)(g_stack.buf[g_stack.len].data);
+	}
+	if (g_stack.len == 0 && g_stack.cap != 0)
+	{
+		g_stack.cap = 0;
+		free(g_stack.buf);
 	}
 }
