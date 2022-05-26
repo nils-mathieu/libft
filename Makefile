@@ -6,7 +6,7 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/05/26 18:22:08 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/05/26 18:46:00 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ define SRCS :=
 	ft_unwind_panic.c
 
 	ft_alloc_array.c
+	ft_alloc.c
 
 	ft_assert.c
 endef

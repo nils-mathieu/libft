@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 18:04:45 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/26 18:31:05 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/26 18:48:00 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ size_t	ft_unwind(void *data, t_free_fn destructor)
 		(*destructor)(data);
 		ft_unwind_panic("the system is out of memory\n");
 	}
-	g_stack.buf[g_stack.len] = (t_unwind_destructor){data, destructor};
+	g_stack.buf[g_stack.len].data = data;
+	g_stack.buf[g_stack.len].destructor = destructor;
 	return (g_stack.len++);
 }
 
