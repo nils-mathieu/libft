@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/22 08:57:33 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/26 18:25:41 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -297,6 +297,25 @@ bool		ft_fmt_err(const char *format, ...);
 bool		ft_dbg(const char *format, ...);
 
 // ========================================================================== //
+//                             Stack Unwinding                                //
+// ========================================================================== //
+
+// A function that is responsible for freeing some datastructure.
+typedef void				(*t_free_fn)(void *data);
+
+// Registers a new value for unwinding.
+//
+// This function returns an integer that can be used to unwind the stack up to
+// this call.
+size_t		ft_unwind(void *data, t_free_fn destructor);
+
+// Unwinds the stack up to the provided index.
+void		ft_unwind_to(size_t to);
+
+// Unwinds the stack, prints an error message and exits with `1`.
+void		ft_unwind_panic(const char *msg, ...);
+
+// ========================================================================== //
 //                                Allocations                                 //
 // ========================================================================== //
 
@@ -308,6 +327,6 @@ void		*ft_alloc_array(size_t count, size_t size);
 // ========================================================================== //
 
 // Makes an assertion. Aborts the process if it is false.
-void		ft_assert(bool	assertion, const char *msg, ...);
+void		ft_assert(bool assertion, const char *msg, ...);
 
 #endif

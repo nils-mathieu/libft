@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:13:41 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/20 14:18:56 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/26 18:08:52 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define __LIBFT_INTERNAL_H
 
 # include "libft.h"
+
+// ========================================================================== //
+//                                   Format                                   //
+// ========================================================================== //
 
 typedef bool	(*t_handle_format_fn)(t_writer w, va_list args);
 
@@ -53,5 +57,22 @@ bool	__ft_fmt_handle_debug_char(t_writer w, va_list args);
 bool	__ft_fmt_handle_debug_string(t_writer w, va_list args);
 bool	__ft_fmt_handle_string(t_writer w, va_list args);
 bool	__ft_fmt_handle_bool(t_writer w, va_list args);
+
+// ========================================================================== //
+//                             Stack Unwinding                                //
+// ========================================================================== //
+
+typedef struct s_unwind_destructor
+{
+	t_free_fn	destructor;
+	void		*data;
+}	t_unwind_destructor;
+
+typedef struct s_unwind_stack
+{
+	t_unwind_destructor	*buf;
+	size_t				cap;
+	size_t				len;
+}	t_unwind_stack;
 
 #endif
