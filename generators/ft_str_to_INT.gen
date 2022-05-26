@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 17:34:52 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/20 00:26:01 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/05/26 17:49:02 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ const char	*ft_str_to_{INT}(const char *s, {INT_T} *result)
 	else if (*s == '+')
 		s++;
 	ret = ft_str_to_{UINT}(s, ({UINT_T} *)result);
-	if (!ret || *({UINT_T} *)result > ({UINT_T}){INT_MIN})
+	if (!ret || *({UINT_T} *)result >= ({UINT_T}){INT_MIN})
 		return (NULL);
 	if (neg)
 		*result = -*result;
