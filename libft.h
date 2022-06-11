@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/26 18:36:35 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/11 14:09:37 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -329,6 +329,36 @@ void		*ft_alloc(size_t count);
 // On overflow, or if the allocation fails, the function panics and unwinds
 // the stack.
 void		*ft_alloc_array(size_t count, size_t size);
+
+// A growable array allocated on the heap.
+//
+// `cap` is the number of elements allocated at `data`. Those elements may or
+// may not be currently.
+//
+// `len` is the number of initialized elements.
+typedef struct t_vec
+{
+	void	*data;
+	size_t	cap;
+	size_t	len;
+}	t_vec;
+
+// Reallocates the internal buffer of the provided vector.
+//
+// If the allocation fails, the function panics and unwinds the stack.
+void		ft_vec_realloc(t_vec *vec, size_t new_cap, size_t elem_size);
+
+// Reallocates the internal buffer of the provided vector if it is not large
+// enough to store at least `additional` mode elements.
+//
+// To avoid frequente reallocations, more data may be allocated.
+//
+// If the allocation fails, the function panics and unwinds the stack.
+void		ft_vec_reserve(t_vec *vec, size_t additional, size_t elem_size);
+
+// Frees the provided vector, calling the `free_el` function on every element
+// within the vector.
+void		ft_vec_free(t_vec *vec, void (*free_el)(void *), size_t elem_size);
 
 // ========================================================================== //
 // 								     Debug                                    //
