@@ -6,7 +6,7 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/06/11 14:19:21 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/06/11 14:20:34 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -119,12 +119,12 @@ HEADER := libft.h __libft_internal.h
 OBJ_FILES := $(patsubst %.c,$(OBJS_DIR)/%.o,$(SRCS) $(GEN))
 GEN_FILES := $(addprefix $(GEN_DIR)/,$(GEN))
 
-CFLAGS := -Wall -Wextra -Werror
+CFLAGS := -Wall -Wextra
 
 ifdef DEBUG
-	CFLAGS += -g3 -D DEBUG
+	CFLAGS := $(CFLAGS) -g3 -D DEBUG
 else
-	CFLAGS += -O3
+	CFLAGS := $(CFLAGS) -Werror
 endif
 
 .PHONY: all
