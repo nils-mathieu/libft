@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/19 15:11:51 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/19 15:17:59 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -305,8 +305,8 @@ void		*ft_alloc_array(size_t count, size_t size);
 typedef struct t_vec
 {
 	void	*data;
-	size_t	cap;
 	size_t	len;
+	size_t	cap;
 }	t_vec;
 
 // Reallocates the internal buffer of the provided vector.
