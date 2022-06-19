@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/11 14:09:37 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/19 15:00:23 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -291,7 +291,7 @@ bool		ft_fmt_fd_va(int fd, const char *format, va_list args);
 bool		ft_fmt(const char *format, ...);
 
 // Formats the provided string and writes to the standard error.
-bool		ft_fmt_err(const char *format, ...);
+bool		ft_efmt(const char *format, ...);
 
 /// Writes something on the standard error (only on `DEBUG` builds).
 bool		ft_dbg(const char *format, ...);

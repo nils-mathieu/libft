@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 19:43:33 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/16 16:48:10 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/19 14:57:13 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ bool	ft_fmt(const char *format, ...)
 	return (ret);
 }
 
-bool	ft_fmt_err(const char *format, ...)
+bool	ft_efmt(const char *format, ...)
 {
 	bool	ret;
 	va_list	args;

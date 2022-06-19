@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:13:41 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/26 18:08:52 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/19 14:57:53 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,12 @@ bool	__ft_fmt_handle_debug_char(t_writer w, va_list args);
 bool	__ft_fmt_handle_debug_string(t_writer w, va_list args);
 bool	__ft_fmt_handle_string(t_writer w, va_list args);
 bool	__ft_fmt_handle_bool(t_writer w, va_list args);
+
+// ========================================================================== //
+//                              Error Messages                                //
+// ========================================================================== //
+
+# define FT_ERR_OUT_OF_MEMORY "the system is out of memory"
 
 // ========================================================================== //
 //                             Stack Unwinding                                //
