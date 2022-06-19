@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:13:41 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/19 15:36:51 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/19 16:03:01 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,14 @@ typedef bool	(*t_handle_format_fn)(t_writer w, va_list args);
 // will be called to handle the next argument.
 typedef struct s_format_handler
 {
-	t_str				id;
-	t_handle_format_fn	format;
+	const t_str					id;
+	const t_handle_format_fn	format;
 }	t_fmt_handler;
 
 bool	__ft_fmt_parse_format(t_writer w, const char **f, va_list args);
+
+t_str	__ft_fmt_escape_codep(uint32_t codep);
+t_str	__ft_fmt_escape_ascii(char c);
 
 // The following function are responsible for handling type formatting
 // using the `ft_fmt_*` functions.

@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 19:30:43 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/19 15:36:29 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/19 16:08:49 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,11 @@ bool	__ft_fmt_handle_char(t_writer w, va_list args)
 
 bool	__ft_fmt_handle_debug_char(t_writer w, va_list args)
 {
-	char	c;
+	const char	c = (char)va_arg(args, int);
+	const t_str	escaped = __ft_fmt_escape_ascii((unsigned char)c);
 
-	c = (char)va_arg(args, int);
-	if (c == '\n')
-		return (w.write(w.self, "\\n", 2));
-	else if (c == '\0')
-		return (w.write(w.self, "\\0", 2));
-	else if (c == '\t')
-		return (w.write(w.self, "\\t", 2));
-	else if (c == '\r')
-		return (w.write(w.self, "\\r", 2));
-	else if (c == '\v')
-		return (w.write(w.self, "\\v", 2));
-	else if (c == '\f')
-		return (w.write(w.self, "\\f", 2));
-	else if (c < ' ' || '~' < c)
-		return (w.write(w.self, "\\?", 2));
+	if (escaped.len == 0)
+		return (w.write(w.self, (void *)&c, 1));
 	else
-		return (w.write(w.self, &c, 1));
+		return (w.write(w.self, (void *)escaped.data, escaped.len));
 }

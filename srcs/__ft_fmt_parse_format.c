@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:22:08 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/19 15:37:17 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/19 15:39:37 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #define FORMAT_HANDLER_COUNT 23
 
-static t_fmt_handler	g_handlers[FORMAT_HANDLER_COUNT] = {
+static const t_fmt_handler	g_handlers[FORMAT_HANDLER_COUNT] = {
 	(t_fmt_handler){(t_str){"ullong", 6}, __ft_fmt_handle_ullong},
 	(t_fmt_handler){(t_str){"ushort", 6}, __ft_fmt_handle_ushort},
 	(t_fmt_handler){(t_str){"sbyte", 5}, __ft_fmt_handle_char},
