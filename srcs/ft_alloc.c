@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 18:36:46 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/19 15:00:01 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/19 15:09:35 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	*ft_alloc(size_t count)
 
 	result = malloc(count);
 	if (!result)
-		ft_unwind_panic(FT_ERR_OUT_OF_MEMORY);
+		ft_unwind_panic("the system is out of memory");
 	return (result);
 }

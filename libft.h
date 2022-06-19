@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/19 15:00:23 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/19 15:11:51 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,62 +201,28 @@ void		ft_mem_set(void *dst, uint8_t byte, size_t n);
 //                               Input/Output                                 //
 // ========================================================================== //
 
-// A partially uninitialized buffer.
-typedef struct s_buffer
-{
-	void	*data;
-	size_t	init;
-	size_t	cap;
-}	t_buffer;
-
 // Writes `data` to the provided file descriptor. Returns whether no error
 // occured.
 bool		ft_write_all(int fd, const void *data, size_t to_write);
 
-// Writes bytes into `buf`, writting everything to the provided file descriptor
-// once it is full.
-//
-// Returns whether the operation is successful.
-bool		ft_write_buffered(int fd, t_buffer *buf, const void *p, size_t n);
+# define READER_BUF_SIZE 1024
 
-// Writes `n` times the bytes pointed by `data` to the provided file
-// descriptor.
-//
-// Returns whether the operation was successful.
-bool		ft_write_repeat(int fd, const void *data, size_t len, size_t n);
-
-// Writes the provided byte `n` times. Returns whether the operation is
-// successful.
-bool		ft_write_repeat_one(int fd, uint8_t b, size_t n);
-
-// The result type of most read operations.
-//
-// `FT_RDRES_INCOMPLETE` - The operation is a success but there is still more
-// data to be flushed.
-//
-// `FT_RDRSLT_DONE` - There is no more data to flush.
-//
-// `FT_RDRSLT_READ_ERROR` - An error occured whislt reading.
-typedef enum e_read_result
-{
-	FT_RDRES_INCOMPLETE = 1,
-	FT_RDRES_DONE = 0,
-	FT_RDRES_ERROR = -1,
-}	t_rdres;
-
-// A buffered reader.
+// Stores the state of a reader.
 typedef struct s_reader
 {
-	int			fd;
-	t_buffer	buf;
-	size_t		cur;
+	int		fd;
+	size_t	init;
+	size_t	consumed;
+	uint8_t	buf[READER_BUF_SIZE];
 }	t_reader;
 
-// Refills the internal buffer of a `reader` regardless of its current state.
-t_rdres		ft_reader_refill(t_reader *reader);
-
-// Reads a single byte from the provided `reader_t` instance.
-t_rdres		ft_read_byte(t_reader *reader, uint8_t *byte);
+// Reads another byte from the provided reader, refilling it if needed.
+//
+// If the function returns `false`, there is no more data to produce and `byte`
+// is left unspecified.
+//
+// If a read error occurs, the function panics.
+bool		ms_reader_next(t_reader *reader, uint8_t *byte);
 
 // ========================================================================== //
 //                                   Format                                   //
