@@ -6,14 +6,14 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 19:43:33 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/19 14:57:13 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/19 16:24:59 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 
-static bool	fd_write(void *self, void *data, size_t count)
+static bool	fd_write(void *self, const void *data, size_t count)
 {
 	return (ft_write_all(*(int *)self, data, count));
 }

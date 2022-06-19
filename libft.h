@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/19 15:35:11 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/19 16:24:00 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -236,7 +236,7 @@ bool		ms_reader_next(t_reader *reader, uint8_t *byte);
 
 // A function that may be used to write the first `count` bytes referenced
 // by `to_write`.
-typedef bool				(*t_writer_fn)(void *s, void *w, size_t l);
+typedef bool				(*t_writer_fn)(void *s, const void *w, size_t l);
 
 // Describes a way to write data somewhere.
 typedef struct s_writer

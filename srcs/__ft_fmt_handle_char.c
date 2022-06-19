@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 19:30:43 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/19 16:08:49 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/19 16:23:39 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ bool	__ft_fmt_handle_debug_char(t_writer w, va_list args)
 	const t_str	escaped = __ft_fmt_escape_ascii((unsigned char)c);
 
 	if (escaped.len == 0)
-		return (w.write(w.self, (void *)&c, 1));
+		return (w.write(w.self, &c, 1));
 	else
-		return (w.write(w.self, (void *)escaped.data, escaped.len));
+		return (w.write(w.self, escaped.data, escaped.len));
 }

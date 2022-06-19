@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:22:08 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/19 15:39:37 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/19 16:24:19 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,5 @@ bool	__ft_fmt_parse_format(t_writer w, const char **f, va_list args)
 	}
 	start = *f;
 	*f = ft_mem_find2_inf(*f, '\0', '{');
-	return (w.write(w.self, (void *)start, *f - start));
+	return (w.write(w.self, start, *f - start));
 }

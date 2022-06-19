@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 18:10:19 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/19 16:21:44 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/19 16:24:15 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ bool	__ft_fmt_handle_debug_string(t_writer w, va_list args)
 		t = next_escaped(s, &escaped);
 		if (!*t)
 			break ;
-		if (!w.write(w.self, (void *)s, t - s)
-			|| !w.write(w.self, (void *)escaped.data, escaped.len))
+		if (!w.write(w.self, s, t - s)
+			|| !w.write(w.self, escaped.data, escaped.len))
 			return (false);
 		s = t;
 	}
-	return (w.write(w.self, (void *)s, t - s));
+	return (w.write(w.self, s, t - s));
 }
