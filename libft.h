@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/19 15:17:59 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/19 15:35:11 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,12 @@ t_llong		ft_llong_abs(t_llong a);
 // ========================================================================== //
 //                                 Strings                                    //
 // ========================================================================== //
+
+// Decodes an additional UTF-8 byte.
+//
+// `0` indicates that the character could be parsed properly.
+// `1` indicates that an error occured.
+uint32_t	ft_utf8_decode(uint32_t state, uint32_t *codep, uint32_t byte);
 
 // A string that knows its length.
 //

@@ -6,7 +6,7 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/06/19 15:15:49 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/06/19 15:35:29 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME := libft.a
 define SRCS :=
 	ft_size_minmax.c
 
+	ft_utf8_decode.c
 	ft_str_len.c
 	ft_str_nlen.c
 	ft_str_cmp.c
