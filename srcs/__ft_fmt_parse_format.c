@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:22:08 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/20 14:21:18 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/19 15:37:17 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static t_fmt_handler	g_handlers[FORMAT_HANDLER_COUNT] = {
 	(t_fmt_handler){(t_str){"s?", 2}, __ft_fmt_handle_debug_string},
 	(t_fmt_handler){(t_str){"c?", 2}, __ft_fmt_handle_debug_char},
 	(t_fmt_handler){(t_str){"s", 1}, __ft_fmt_handle_string},
-	(t_fmt_handler){(t_str){"c", 1}, __ft_fmt_handle_print_char},
+	(t_fmt_handler){(t_str){"c", 1}, __ft_fmt_handle_char},
 	(t_fmt_handler){(t_str){"b", 1}, __ft_fmt_handle_bool},
 };
 
