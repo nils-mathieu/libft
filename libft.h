@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/19 16:24:00 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/21 01:11:32 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,13 +222,16 @@ typedef struct s_reader
 	uint8_t	buf[READER_BUF_SIZE];
 }	t_reader;
 
+// Initializes a `t_reader` instance.
+void		ft_reader_init(t_reader *reader, int fd);
+
 // Reads another byte from the provided reader, refilling it if needed.
 //
 // If the function returns `false`, there is no more data to produce and `byte`
 // is left unspecified.
 //
 // If a read error occurs, the function panics.
-bool		ms_reader_next(t_reader *reader, uint8_t *byte);
+bool		ft_reader_next(t_reader *reader, uint8_t *byte);
 
 // ========================================================================== //
 //                                   Format                                   //

@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mem_set.c                                       :+:      :+:    :+:   */
+/*   ft_reader_init.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/05 21:19:28 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/21 01:12:47 by nmathieu         ###   ########.fr       */
+/*   Created: 2022/06/21 01:11:37 by nmathieu          #+#    #+#             */
+/*   Updated: 2022/06/21 01:12:14 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_mem_set(void *dst, uint8_t byte, size_t n)
+void	ft_reader_init(t_reader *reader, int fd)
 {
-	while (n)
-	{
-		*(uint8_t *)dst = byte;
-		dst++;
-		n--;
-	}
+	ft_mem_set(reader, 0x00, sizeof(t_reader));
+	reader->fd = fd;
 }
