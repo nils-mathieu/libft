@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:13:41 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/19 16:03:01 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/21 01:50:57 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ bool	__ft_fmt_handle_long(t_writer w, va_list args);
 bool	__ft_fmt_handle_ulong(t_writer w, va_list args);
 bool	__ft_fmt_handle_llong(t_writer w, va_list args);
 bool	__ft_fmt_handle_ullong(t_writer w, va_list args);
-bool	__ft_fmt_handle_char(t_writer w, va_list args);
+bool	__ft_fmt_handle_char2(t_writer w, va_list args);
 bool	__ft_fmt_handle_debug_char(t_writer w, va_list args);
 bool	__ft_fmt_handle_debug_string(t_writer w, va_list args);
 bool	__ft_fmt_handle_string(t_writer w, va_list args);

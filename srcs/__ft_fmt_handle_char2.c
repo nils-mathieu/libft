@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   __ft_fmt_handle_char.c                             :+:      :+:    :+:   */
+/*   __ft_fmt_handle_char2.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 19:30:43 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/19 16:23:39 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/21 01:50:42 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "__libft_internal.h"
 #include <stdio.h>
 
-bool	__ft_fmt_handle_char(t_writer w, va_list args)
+bool	__ft_fmt_handle_char2(t_writer w, va_list args)
 {
 	char	c;
 
