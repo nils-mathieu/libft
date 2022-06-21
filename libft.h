@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/21 01:11:32 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/21 18:30:07 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -289,6 +289,9 @@ void		ft_unwind_to(size_t to);
 
 // Unwinds the stack, prints an error message and exits with `1`.
 void		ft_unwind_panic(const char *msg, ...);
+
+// Defuses the destructor of the provided index.
+void		ft_unwind_defuse(size_t index);
 
 // ========================================================================== //
 //                                Allocations                                 //

@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 18:04:45 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/26 18:48:00 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/21 18:34:54 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ size_t	ft_unwind(void *data, t_free_fn destructor)
 	}
 	g_stack.buf[g_stack.len].data = data;
 	g_stack.buf[g_stack.len].destructor = destructor;
+	g_stack.buf[g_stack.len].defused = false;
 	return (g_stack.len++);
 }
 
@@ -55,6 +56,8 @@ void	ft_unwind_to(size_t to)
 	while (g_stack.len > to)
 	{
 		g_stack.len--;
+		if (g_stack.buf[g_stack.len].defused)
+			continue ;
 		(*g_stack.buf[g_stack.len].destructor)(g_stack.buf[g_stack.len].data);
 	}
 	if (g_stack.len == 0 && g_stack.cap != 0)
@@ -62,4 +65,10 @@ void	ft_unwind_to(size_t to)
 		g_stack.cap = 0;
 		free(g_stack.buf);
 	}
+}
+
+void	ft_unwind_defuse(size_t index)
+{
+	ft_assert(index < g_stack.len, "invalid defuse index");
+	g_stack.buf[index].defused = true;
 }

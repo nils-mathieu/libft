@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:13:41 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/21 01:50:57 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/21 18:33:31 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ typedef struct s_unwind_destructor
 {
 	t_free_fn	destructor;
 	void		*data;
+	bool		defused;
 }	t_unwind_destructor;
 
 typedef struct s_unwind_stack
