@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 18:04:45 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/21 18:34:54 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/06/21 19:23:01 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,6 @@ void	ft_unwind_defuse(size_t index)
 {
 	ft_assert(index < g_stack.len, "invalid defuse index");
 	g_stack.buf[index].defused = true;
+	while (g_stack.len > 0 && g_stack.buf[g_stack.len - 1].defused)
+		g_stack.len--;
 }
