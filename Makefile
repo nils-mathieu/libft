@@ -6,7 +6,7 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/06/21 01:50:35 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/07/09 18:30:25 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,8 @@ define SRCS :=
 	ft_mem_copy.c
 	ft_mem_set.c
 
+	ft_open.c
+	ft_close.c
 	ft_write_all.c
 	ft_reader_init.c
 	ft_reader_next.c

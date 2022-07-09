@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/21 18:30:07 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/07/09 18:30:05 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,6 +206,14 @@ void		ft_mem_set(void *dst, uint8_t byte, size_t n);
 // ========================================================================== //
 //                               Input/Output                                 //
 // ========================================================================== //
+
+// Opens a file with the specified flags.
+//
+// If an error occurs, the function panics.
+int			ft_open(const char *filename, int flags);
+
+// Closes the provided file descriptor.
+void		ft_close(int *fd);
 
 // Writes `data` to the provided file descriptor. Returns whether no error
 // occured.
