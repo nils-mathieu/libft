@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 15:09:51 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/07/10 17:52:30 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/07/10 21:11:36 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ bool	ft_reader_get(t_reader *reader, size_t index, uint8_t *byte)
 {
 	const size_t	i = index + reader->con;
 
-	ft_assert(i > reader->init, "index {ulong} is out of bound", index);
+	ft_assert(i <= reader->init, "index {ulong} is out of bound", index);
 	if (i == reader->init && !ft_reader_refill(reader, 1024))
 		return (false);
 	*byte = reader->data[i];
