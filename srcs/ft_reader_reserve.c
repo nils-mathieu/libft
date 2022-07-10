@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 13:31:58 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/07/10 14:00:09 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/07/10 16:51:21 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ static void	reallocate(t_reader *r, size_t new_cap)
 	r->data = new_data;
 	r->cap = new_cap;
 	r->init -= r->con;
-	r->cur -= r->con;
 	r->con = 0;
 }
 
@@ -49,7 +48,6 @@ void	ft_reader_reserve(t_reader *r, size_t count)
 	{
 		ft_mem_move_left(r->data, r->data + r->con, r->con);
 		r->init -= r->con;
-		r->cur -= r->con;
 		r->con = 0;
 		return ;
 	}
