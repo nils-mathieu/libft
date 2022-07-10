@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/07/10 13:40:54 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/07/10 13:59:28 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -306,6 +306,9 @@ bool		ft_dbg(const char *format, ...);
 //                             Stack Unwinding                                //
 // ========================================================================== //
 
+// Stores an index that is suitable for stack unwinding.
+typedef size_t				t_unwind;
+
 // A function that is responsible for freeing some datastructure.
 typedef void				(*t_free_fn)(void *data);
 
@@ -313,16 +316,16 @@ typedef void				(*t_free_fn)(void *data);
 //
 // This function returns an integer that can be used to unwind the stack up to
 // this call.
-size_t		ft_unwind(void *data, t_free_fn destructor);
+t_unwind	ft_unwind(void *data, t_free_fn destructor);
 
 // Unwinds the stack up to the provided index.
-void		ft_unwind_to(size_t to);
+void		ft_unwind_to(t_unwind to);
 
 // Unwinds the stack, prints an error message and exits with `1`.
 void		ft_unwind_panic(const char *msg, ...);
 
 // Defuses the destructor of the provided index.
-void		ft_unwind_defuse(size_t index);
+void		ft_unwind_defuse(t_unwind index);
 
 // ========================================================================== //
 //                                Allocations                                 //

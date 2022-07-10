@@ -6,11 +6,12 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 13:31:58 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/07/10 13:46:49 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/07/10 14:00:09 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static void	ft_mem_move_left(uint8_t *dst, const uint8_t *src, size_t count)
 {
