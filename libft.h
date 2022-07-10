@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/07/10 16:52:14 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/07/10 17:55:21 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -267,6 +267,11 @@ void		ft_reader_consume(t_reader *reader, size_t count);
 // Returns a `t_str` over the bytes currently stored in this `t_reader`
 // instance that were not consumed.
 t_str		ft_reader_str(const t_reader *reader);
+
+// Writes the byte at index `index` in the provided `t_reader`. If `index` is
+// the first non-initialized byte, the reader is refilled. In case that happens,
+// if the file is empty, `false` is returned.
+bool		ft_reader_get(t_reader *reader, size_t index, uint8_t *byte);
 
 // ========================================================================== //
 //                                   Format                                   //
