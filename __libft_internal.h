@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:13:41 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/21 18:33:31 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/07/10 16:07:42 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ bool	__ft_fmt_handle_debug_char(t_writer w, va_list args);
 bool	__ft_fmt_handle_debug_string(t_writer w, va_list args);
 bool	__ft_fmt_handle_string(t_writer w, va_list args);
 bool	__ft_fmt_handle_bool(t_writer w, va_list args);
+bool	__ft_fmt_handle_str(t_writer w, va_list args);
+bool	__ft_fmt_handle_debug_str(t_writer w, va_list args);
 
 // ========================================================================== //
 //                             Stack Unwinding                                //

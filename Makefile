@@ -6,7 +6,7 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/07/10 15:47:59 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/07/10 15:51:01 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ define SRCS :=
 	__ft_fmt_handle_char2.c
 	__ft_fmt_handle_string.c
 	__ft_fmt_handle_bool.c
+	__ft_fmt_handle_str.c
 	__ft_fmt_escape.c
 	ft_fmt_write.c
 	ft_fmt.c

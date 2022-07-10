@@ -6,14 +6,14 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:22:08 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/21 01:50:51 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/07/10 16:09:58 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "__libft_internal.h"
 #include <stdio.h>
 
-#define FORMAT_HANDLER_COUNT 23
+#define FORMAT_HANDLER_COUNT 25
 
 static const t_fmt_handler	g_handlers[FORMAT_HANDLER_COUNT] = {
 	(t_fmt_handler){(t_str){"ullong", 6}, __ft_fmt_handle_ullong},
@@ -25,6 +25,8 @@ static const t_fmt_handler	g_handlers[FORMAT_HANDLER_COUNT] = {
 	(t_fmt_handler){(t_str){"long", 4}, __ft_fmt_handle_long},
 	(t_fmt_handler){(t_str){"byte", 4}, __ft_fmt_handle_uchar},
 	(t_fmt_handler){(t_str){"uint", 4}, __ft_fmt_handle_uint},
+	(t_fmt_handler){(t_str){"str?", 4}, __ft_fmt_handle_debug_str},
+	(t_fmt_handler){(t_str){"str", 3}, __ft_fmt_handle_str},
 	(t_fmt_handler){(t_str){"u16", 3}, __ft_fmt_handle_uint16},
 	(t_fmt_handler){(t_str){"i16", 3}, __ft_fmt_handle_int16},
 	(t_fmt_handler){(t_str){"u32", 3}, __ft_fmt_handle_uint32},
