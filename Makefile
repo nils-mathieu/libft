@@ -6,7 +6,7 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/07/10 13:57:45 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/07/10 14:12:15 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ define SRCS :=
 	ft_str_find.c
 	ft_str_rfind.c
 	ft_str_starts_with.c
+	ft_str_dup.c
 
 	ft_mem_find.c
 	ft_mem_find_inf.c

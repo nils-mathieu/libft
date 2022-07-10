@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/07/10 13:59:28 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/07/10 14:10:09 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,19 @@ const char	*ft_str_rfind(const char *s, char c);
 
 // Determines whether `needle` can be found at the start of `s`.
 bool		ft_str_starts_with(const char *s, const char *needle);
+
+// Returns a copy of the provided string, allocated using `malloc`.
+//
+// If the allocation fails, the function panics.
+char		*ft_str_dup(const char *s);
+
+// Returns a copy of the provided string, allocated using `malloc`.
+//
+// The string is trucated to be at most `n` characters (not including the
+// terminating null character).
+//
+// If the allocation fails, the function panics.
+char		*ft_str_ndup(const char *s, size_t n);
 
 // ========================================================================== //
 //                                   Format                                   //
