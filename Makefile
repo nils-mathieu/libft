@@ -6,7 +6,7 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/07/10 14:12:15 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/07/10 14:13:39 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,12 +32,9 @@ define SRCS :=
 	ft_mem_set.c
 
 	ft_open.c
-	ft_close.c
 	ft_write_all.c
 	ft_reader_init.c
-	ft_reader_deinit.c
 	ft_reader_next.c
-	ft_reader_peek.c
 	ft_reader_consume.c
 	ft_reader_reserve.c
 
@@ -48,7 +45,6 @@ define SRCS :=
 	__ft_fmt_escape.c
 	ft_fmt_write.c
 	ft_fmt.c
-	ft_dbg.c
 
 	ft_unwind.c
 	ft_unwind_panic.c
@@ -60,6 +56,7 @@ define SRCS :=
 	ft_vec_reserve.c
 
 	ft_assert.c
+	ft_dbg.c
 endef
 
 define GEN :=
