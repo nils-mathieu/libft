@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/07/10 14:10:09 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/07/10 14:37:20 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -276,6 +276,10 @@ void		ft_reader_reserve(t_reader *reader, size_t count);
 // Notifies a `t_reader` instance that `count` bytes wont be needed anymore and
 // can be overriden when needed. 
 void		ft_reader_consume(t_reader *reader, size_t count);
+
+// Returns `t_str` instance over the bytes that were read by the `t_reader`,
+// from the first not-consumed byte, to the last outputed character.
+t_str		ft_reader_str(const t_reader *reader);
 
 // ========================================================================== //
 //                                   Format                                   //
