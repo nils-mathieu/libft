@@ -6,7 +6,7 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/07/10 14:37:27 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/07/10 15:47:59 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ define SRCS :=
 	__ft_fmt_escape.c
 	ft_fmt_write.c
 	ft_fmt.c
+	ft_sfmt.c
 
 	ft_unwind.c
 	ft_unwind_panic.c

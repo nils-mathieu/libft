@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/07/10 14:37:20 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/07/10 15:48:31 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -316,8 +316,15 @@ bool		ft_fmt(const char *format, ...);
 // Formats the provided string and writes to the standard error.
 bool		ft_efmt(const char *format, ...);
 
-/// Writes something on the standard error (only on `DEBUG` builds).
-bool		ft_dbg(const char *format, ...);
+// Formats the provided string into a new string.
+//
+// If an allocation error occurs, the function panics.
+char		*ft_sfmt_va(const char *format, va_list args);
+
+// Formats the provided string into a new string.
+//
+// If an allocation error occurs, the function panics.
+char		*ft_sfmt(const char *format, ...);
 
 // ========================================================================== //
 //                             Stack Unwinding                                //
@@ -327,7 +334,7 @@ bool		ft_dbg(const char *format, ...);
 typedef size_t				t_unwind;
 
 // A function that is responsible for freeing some datastructure.
-typedef void				(*t_free_fn)(void *data);
+typedef void				(*t_free_fn)();
 
 // Registers a new value for unwinding.
 //
@@ -387,7 +394,7 @@ void		ft_vec_reserve(t_vec *vec, size_t additional, size_t elem_size);
 
 // Frees the provided vector, calling the `free_el` function on every element
 // within the vector.
-void		ft_vec_free(t_vec *vec, void (*free_el)(void *), size_t elem_size);
+void		ft_vec_free(t_vec *vec, void (*free_el)(), size_t elem_size);
 
 // ========================================================================== //
 // 								     Debug                                    //
@@ -395,5 +402,8 @@ void		ft_vec_free(t_vec *vec, void (*free_el)(void *), size_t elem_size);
 
 // Makes an assertion. Aborts the process if it is false.
 void		ft_assert(bool assertion, const char *msg, ...);
+
+/// Writes something on the standard error (only on `DEBUG` builds).
+bool		ft_dbg(const char *format, ...);
 
 #endif
