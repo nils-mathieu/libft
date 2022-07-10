@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/07/09 18:30:05 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/07/10 13:40:54 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,19 +219,22 @@ void		ft_close(int *fd);
 // occured.
 bool		ft_write_all(int fd, const void *data, size_t to_write);
 
-# define READER_BUF_SIZE 1024
-
 // Stores the state of a reader.
 typedef struct s_reader
 {
-	int		fd;
-	size_t	init;
-	size_t	consumed;
-	uint8_t	buf[READER_BUF_SIZE];
+	uint8_t		*data;
+	size_t		init;
+	size_t		cap;
+	size_t		con;
+	size_t		cur;
+	int			fd;
 }	t_reader;
 
 // Initializes a `t_reader` instance.
 void		ft_reader_init(t_reader *reader, int fd);
+
+// Frees the resources that were allocated for `t_reader` instance.
+void		ft_reader_deinit(t_reader *reader);
 
 // Reads another byte from the provided reader, refilling it if needed.
 //
@@ -240,6 +243,26 @@ void		ft_reader_init(t_reader *reader, int fd);
 //
 // If a read error occurs, the function panics.
 bool		ft_reader_next(t_reader *reader, uint8_t *byte);
+
+// Reads another byte from the provided reader, refilling it if needed. The
+// internal cursor of the reader is not incremented, meaning that a later call
+// to `ft_reader_next` or `ft_reader_peek` will provide the same byte.
+//
+// If the function returns `false`, there is no more data to produce and `byte`
+// is left unspecified.
+//
+// If an error occurs, the function panics.
+bool		ft_reader_peek(t_reader *reader, uint8_t *byte);
+
+// Makes sure that the reader can read at least `count` additional bytes
+// continuously without reallocating.
+//
+// If the system is out of memory, the function panics.
+void		ft_reader_reserve(t_reader *reader, size_t count);
+
+// Notifies a `t_reader` instance that `count` bytes wont be needed anymore and
+// can be overriden when needed. 
+void		ft_reader_consume(t_reader *reader, size_t count);
 
 // ========================================================================== //
 //                                   Format                                   //

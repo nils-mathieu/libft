@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_reader_next.c                                   :+:      :+:    :+:   */
+/*   ft_reader_consume.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/19 15:09:51 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/07/10 13:53:40 by nmathieu         ###   ########.fr       */
+/*   Created: 2022/07/10 13:54:08 by nmathieu          #+#    #+#             */
+/*   Updated: 2022/07/10 13:57:25 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdbool.h>
 
-bool	ft_reader_next(t_reader *reader, uint8_t *byte)
+void	ft_reader_consume(t_reader *reader, size_t count)
 {
-	if (!ft_reader_peek(reader, byte))
-		return (false);
-	reader->cur++;
-	return (true);
+	ft_assert(
+		reader->con + count <= reader->cur,
+		"tried to consume more bytes than possible");
+	reader->con += count;
+	if (reader->con < reader->init)
+		return ;
+	reader->init = 0;
+	reader->cur = 0;
+	reader->con = 0;
 }
