@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 08:28:35 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/05/16 16:45:07 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/07/11 11:01:07 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #ifdef DEBUG
 
-static bool	fd_write(void *self, void *data, size_t count)
+static bool	fd_write(void *self, const void *data, size_t count)
 {
 	(void)self;
 	return (ft_write_all(STDERR_FILENO, data, count));

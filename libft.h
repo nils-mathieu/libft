@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/07/10 18:02:53 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/07/11 11:11:17 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ t_ushort	ft_ushort_max(t_ushort a, t_ushort b);
 t_uint		ft_uint_max(t_uint a, t_uint b);
 t_ulong		ft_ulong_max(t_ulong a, t_ulong b);
 t_ullong	ft_ullong_max(t_ullong a, t_ullong b);
+size_t		ft_size_max(size_t a, size_t b);
 
 uint8_t		ft_uint8_min(uint8_t a, uint8_t b);
 uint16_t	ft_uint16_min(uint16_t a, uint16_t b);
@@ -69,6 +70,7 @@ t_ushort	ft_ushort_min(t_ushort a, t_ushort b);
 t_uint		ft_uint_min(t_uint a, t_uint b);
 t_ulong		ft_ulong_min(t_ulong a, t_ulong b);
 t_ullong	ft_ullong_min(t_ullong a, t_ullong b);
+size_t		ft_size_min(size_t a, size_t b);
 
 int8_t		ft_int8_abs(int8_t a);
 int16_t		ft_int16_abs(int16_t a);

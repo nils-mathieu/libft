@@ -6,13 +6,30 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 18:22:01 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/19 14:59:30 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/07/11 11:13:01 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 #include <stdlib.h>
+
+#ifdef DEBUG
+
+static void	end_process(int ret)
+{
+	(void)ret;
+	abort();	
+}
+
+#else
+
+static void	end_process(int ret)
+{
+	exit(ret);
+}
+
+#endif
 
 void	ft_unwind_panic(const char *msg, ...)
 {
@@ -23,5 +40,5 @@ void	ft_unwind_panic(const char *msg, ...)
 	ft_write_all(STDERR_FILENO, "\n", 1);
 	va_end(args);
 	ft_unwind_to(0);
-	exit(1);
+	end_process(1);
 }
