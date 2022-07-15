@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/07/11 11:11:17 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/07/15 05:21:20 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -263,7 +263,7 @@ bool		ft_reader_refill(t_reader *r, size_t min_read_size);
 void		ft_reader_reserve(t_reader *reader, size_t count);
 
 // Notifies a `t_reader` instance that `count` bytes wont be needed anymore and
-// can be overriden when needed. 
+// can be overriden when needed.
 void		ft_reader_consume(t_reader *reader, size_t count);
 
 // Returns a `t_str` over the bytes currently stored in this `t_reader`
@@ -344,6 +344,9 @@ void		ft_unwind_panic(const char *msg, ...);
 
 // Defuses the destructor of the provided index.
 void		ft_unwind_defuse(t_unwind index);
+
+// Defuses every destructor until (and including) the provided index.
+void		ft_unwind_defuse_to(t_unwind index);
 
 // ========================================================================== //
 //                                Allocations                                 //
