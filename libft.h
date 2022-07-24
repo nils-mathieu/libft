@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/07/24 19:15:14 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/07/24 19:27:40 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -263,9 +263,11 @@ bool		ft_reader_refill(t_reader *r, size_t min_read_size);
 void		ft_reader_reserve(t_reader *reader, size_t count);
 
 // Notifies a `t_reader` instance that `count` bytes wont be needed anymore and
-// can be overriden when needed. If more byte than initialized are consumed, the
-// function panics.
-void		ft_reader_consume(t_reader *reader, size_t count);
+// can be overriden when needed.
+//
+// The function returns `false` that operation resulted in the inner file being
+// exhausted.
+bool		ft_reader_consume(t_reader *reader, size_t count);
 
 // Returns a `t_str` over the bytes currently stored in this `t_reader`
 // instance that were not consumed.
