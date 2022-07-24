@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/07/24 19:27:40 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/07/24 19:34:09 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -396,6 +396,12 @@ void		ft_vec_realloc(t_vec *vec, size_t new_cap, size_t elem_size);
 //
 // If the allocation fails, the function panics and unwinds the stack.
 void		ft_vec_reserve(t_vec *vec, size_t additional, size_t elem_size);
+
+// Appends `n * elem_size` bytes to the end of the vector, allocating more
+// memory as needed.
+//
+// If the allocation fails, the function panics.
+void		ft_vec_append(t_vec *vec, const void *data, size_t n, size_t es);
 
 // Frees the provided vector, calling the `free_el` function on every element
 // within the vector.
