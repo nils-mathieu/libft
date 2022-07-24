@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/07/15 05:21:20 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/07/24 19:15:14 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -263,7 +263,8 @@ bool		ft_reader_refill(t_reader *r, size_t min_read_size);
 void		ft_reader_reserve(t_reader *reader, size_t count);
 
 // Notifies a `t_reader` instance that `count` bytes wont be needed anymore and
-// can be overriden when needed.
+// can be overriden when needed. If more byte than initialized are consumed, the
+// function panics.
 void		ft_reader_consume(t_reader *reader, size_t count);
 
 // Returns a `t_str` over the bytes currently stored in this `t_reader`
@@ -274,6 +275,11 @@ t_str		ft_reader_str(const t_reader *reader);
 // the first non-initialized byte, the reader is refilled. In case that happens,
 // if the file is empty, `false` is returned.
 bool		ft_reader_get(t_reader *reader, size_t index, uint8_t *byte);
+
+// Returns the byte at index `index` in the provided `t_reader`. If `index` is
+// the first non-initialized byte, the reader is refilled. In case that happens,
+// if the file is empty, the function panics.
+uint8_t		ft_reader_aget(t_reader *reader, size_t index);
 
 // ========================================================================== //
 //                                   Format                                   //
