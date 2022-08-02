@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 15:30:21 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/07/10 16:57:17 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/08/02 09:09:29 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,8 @@ static bool	my_write(void *self, const void *data, size_t len)
 {
 	t_vec *const	vec = (t_vec *)self;
 
-	ft_vec_reserve(vec, len, sizeof(char));
-	ft_mem_copy(vec->data + vec->len, data, len);
-	vec->len += len;
+	ft_vec_append(vec, data, len, sizeof(char));
 	return (true);
-}
-
-static void	my_free(t_vec *self)
-{
-	if (self->cap)
-		free(self->data);
 }
 
 static void	my_va_end(va_list *args)
@@ -40,7 +32,7 @@ char	*ft_sfmt_va(const char *format, va_list args)
 	t_vec		vec;
 
 	ft_mem_set(&vec, 0x00, sizeof(t_vec));
-	unwind_index = ft_unwind(&vec, my_free);
+	unwind_index = ft_unwind(&vec, ft_vec_free_simple);
 	ft_fmt_write_va((t_writer){&vec, my_write}, format, args);
 	ft_unwind_defuse(unwind_index);
 	ft_vec_reserve(&vec, 1, sizeof(char));
