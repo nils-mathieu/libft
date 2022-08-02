@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/07/24 19:34:09 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/08/02 09:35:33 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,17 @@ t_llong		ft_llong_abs(t_llong a);
 // `0` indicates that the character could be parsed properly.
 // `1` indicates that an error occured.
 uint32_t	ft_utf8_decode(uint32_t state, uint32_t *codep, uint32_t byte);
+
+// Returns the size of a specific unicode code point if it was to be encoded
+// in UTF-8.
+size_t		ft_utf8_codep_len(uint32_t codep);
+
+// Returns the size of an UTF-8 character using the first byte encoding that
+// character.
+//
+// If the provided value is not a valid UTF-8 first byte, `0` is returned.
+size_t		ft_utf8_char_len(uint8_t first_char);
+
 
 // A string that knows its length.
 //

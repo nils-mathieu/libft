@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 15:22:26 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/06/19 15:35:04 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/08/02 09:36:29 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,30 @@ uint32_t	ft_utf8_decode(uint32_t state, uint32_t *codep, uint32_t byte)
 		*codep = (0xff >> type) & (byte);
 	state = g_utf8d[256 + state * 16 + type];
 	return (state);
+}
+
+size_t	ft_utf8_codep_len(uint32_t codep)
+{
+	if (codep <= 0x7f)
+		return (1);
+	else if (codep <= 0x7ff)
+		return (2);
+	else if (codep <= 0xffff)
+		return (3);
+	else
+		return (4);
+}
+
+size_t	ft_utf8_char_len(uint8_t first_char)
+{
+	if ((first_char & 0b10000000) == 0b00000000)
+		return (1);
+	else if ((first_char & 0b11100000) == 0b11000000)
+		return (2);
+	else if ((first_char & 0b11110000) == 0b11100000)
+		return (3);
+	else if ((first_char & 0b11111000) == 0b11110000)
+		return (4);
+	else
+		return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 15:49:31 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/07/10 16:05:36 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/08/02 09:34:56 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ bool	__ft_fmt_handle_debug_str(t_writer w, va_list args)
 		if (!w.write(w.self, s.data, count)
 			|| !w.write(w.self, escaped.data, escaped.len))
 			return (false);
+		count += ft_utf8_char_len(s.data[count]);
 		s.data += count;
 		s.len -= count;
 	}
