@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:00 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/07/24 19:34:09 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/08/02 09:06:56 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -406,6 +406,10 @@ void		ft_vec_append(t_vec *vec, const void *data, size_t n, size_t es);
 // Frees the provided vector, calling the `free_el` function on every element
 // within the vector.
 void		ft_vec_free(t_vec *vec, void (*free_el)(), size_t elem_size);
+
+// Frees the provided vector, assuming that its elements don't need to be
+// destroyed.
+void		ft_vec_free_simple(t_vec *vec);
 
 // ========================================================================== //
 // 								     Debug                                    //

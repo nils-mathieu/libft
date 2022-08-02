@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:18:10 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/07/10 19:34:24 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/08/02 09:06:23 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,10 @@ void	ft_vec_free(t_vec *vec, void (*free_el)(void *), size_t elem_size)
 	while (vec->len--)
 		free_el(vec->data + vec->len * elem_size);
 	free(vec->data);
+}
+
+void	ft_vec_free_simple(t_vec *vec)
+{
+	if (vec->cap)
+		free(vec->data);
 }
