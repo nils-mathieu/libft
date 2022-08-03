@@ -6,7 +6,7 @@
 #    By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 11:29:21 by nmathieu          #+#    #+#              #
-#    Updated: 2022/07/10 17:52:39 by nmathieu         ###   ########.fr        #
+#    Updated: 2022/08/03 16:26:21 by nmathieu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,6 +57,7 @@ define SRCS :=
 	ft_vec_free.c
 	ft_vec_realloc.c
 	ft_vec_reserve.c
+	ft_vec_append.c
 
 	ft_assert.c
 	ft_dbg.c
