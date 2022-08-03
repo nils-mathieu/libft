@@ -6,7 +6,7 @@
 /*   By: nmathieu <nmathieu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 18:10:19 by nmathieu          #+#    #+#             */
-/*   Updated: 2022/08/02 09:35:20 by nmathieu         ###   ########.fr       */
+/*   Updated: 2022/08/03 16:22:26 by nmathieu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static const char	*next_escaped(const char *s, t_str *escaped)
 	state = 0;
 	while (true)
 	{
-		state = ft_utf8_decode(state, &codep, *s);
+		state = ft_utf8_decode(state, &codep, (unsigned char)*s);
 		if (state == 1)
 		{
 			*escaped = (t_str){"\ufffd", 3};
